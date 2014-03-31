@@ -181,8 +181,8 @@ set iminsert=0 imsearch=0
 set listchars=tab:>-
 set list
 
-
 inoremap ,date <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
+inoremap ,blogdate <C-R>=strftime("date: %Y-%m-%d %H:%M")<CR>
 inoremap ,todo todo: <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
 inoremap ,done done: <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
 iabbrev ,# # -------------------------------------------------------------------------
