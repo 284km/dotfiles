@@ -5,3 +5,5 @@
 	ui = auto
 [ghn]
   token = a043937db3f97410e77efa19495c32aaee7c7469
+[push]
+	default = simple
