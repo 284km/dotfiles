@@ -84,6 +84,8 @@ endif
 nnoremap j gj
 nnoremap k gk
 
+
+set tags=./tags,tags;$HOME
 " ctags で対象複数の場合は一覧表示する
 nnoremap <C-]> g<C-]>
 
