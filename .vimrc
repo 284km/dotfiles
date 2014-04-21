@@ -18,6 +18,9 @@ else
   " Bundle 'unite.vim'
   " Bundle 'git://github.com/vim-ruby/vim-ruby.git'
 
+  " ruby
+  Bundle 'vim-scripts/ruby-matchit'
+
   Bundle 'nathanaelkane/vim-indent-guides'
   Bundle 'tpope/vim-fugitive'
   " Bundle 'scrooloose/nerdcommenter'
