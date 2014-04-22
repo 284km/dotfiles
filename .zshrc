@@ -6,6 +6,8 @@ stty intr 
 case ${OSTYPE} in
   darwin*)
     export PATH="${HOME}/ios/cocos2d-x-2.2.1/tools/project-creator:${PATH}"
+    export PATH="/usr/local/bin:${PATH}"
+# ln -s /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin
     ;;
   linux*)
     ;;
@@ -35,17 +37,17 @@ if [ -d ${HOME}/.rbenv ]; then
 fi
 # plenv
 if [ -d ${HOME}/.plenv  ]; then
-    export PATH=${HOME}/.plenv/bin/:${HOME}/.plenv/shims:${PATH}
+    export PATH=${HOME}/.plenv/bin:${HOME}/.plenv/shims:${PATH}
     eval "$(plenv init - zsh)"
 fi
 # ndenv
 if [ -d ${HOME}/.ndenv  ]; then
-    export PATH=${HOME}/.ndenv/bin/:${HOME}/.ndenv/shims:${PATH}
+    export PATH=${HOME}/.ndenv/bin:${HOME}/.ndenv/shims:${PATH}
     eval "$(ndenv init - zsh)"
 fi
 # pyenv
 if [ -d ${HOME}/.pyenv  ]; then
-    export PATH=${HOME}/.pyenv/bin/:${HOME}/.pyenv/shims:${PATH}
+    export PATH=${HOME}/.pyenv/bin:${HOME}/.pyenv/shims:${PATH}
     eval "$(pyenv init - zsh)"
 fi
 
