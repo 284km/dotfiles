@@ -1,0 +1,10 @@
+
+npm install -g grunt-cli
+npm install -g coffee-script
+npm install -g esprima
+
+# -------------------------------------------------------------------------
+
+npm install -g gitbook
+
+
