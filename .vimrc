@@ -208,6 +208,10 @@ let g:miniBufExplMapCTabSwitchBuffs = 1
 " 自動cd
 " ref. http://nanasi.jp/articles/vim/cd_vim.html
 
+" golang
+if $GOROOT != ''
+  set rtp+=$GOROOT/misc/vim
+endif
 
 au BufEnter * execute ":lcd " . expand("%:p:h")
 

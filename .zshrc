@@ -51,6 +51,17 @@ if [ -d ${HOME}/.pyenv  ]; then
     eval "$(pyenv init - zsh)"
 fi
 
+# for go lang
+if [ -x "`which go`" ]; then
+  export GOROOT=`go env GOROOT`
+  export GOPATH=$HOME/go
+  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
+# Go completion
+# if [ -f $GOROOT/misc/zsh/go ]; then
+#     source $GOROOT/misc/zsh/go
+# fi
+
 # unset PS1
 PS1=%F{5}%#%f
 # PS1=%F{7}%K{6}%#%k%f
