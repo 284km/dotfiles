@@ -8,3 +8,8 @@ npm install -g esprima
 npm install -g gitbook
 
 
+# =========================================================================
+
+brew install jq
+
+
