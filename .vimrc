@@ -211,6 +211,13 @@ let g:miniBufExplMapCTabSwitchBuffs = 1
 " golang
 if $GOROOT != ''
   set rtp+=$GOROOT/misc/vim
+  "gocode
+  exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+  "golint
+  exe "set rtp+=".globpath($GOPATH, "src/github.com/golang/lint/misc/vim")
+
+  " ファイル保存時に auto format
+  " auto BufWritePre *.go Fmt
 endif
 
 au BufEnter * execute ":lcd " . expand("%:p:h")
@@ -237,9 +244,11 @@ augroup END
 
 hi clear CursorLine
 hi CursorLine gui=underline
-highlight CursorLine ctermbg=darkblue guibg=darkblue
+" highlight CursorLine ctermbg=darkblue guibg=darkblue
+highlight CursorLine ctermbg=0 guibg=darkblue
 
-
+" 補完内容が詳細に表示されるようになる
+set completeopt=menu,preview
 
 "===================================================================
 " vim-indent-guides
