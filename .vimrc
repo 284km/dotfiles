@@ -231,7 +231,7 @@ let g:netrw_liststyle = 3
 
 syntax on
 highlight ZenkakuSpace ctermbg=6 guibg=cyan
-match ZenkakuSpace /\s\+$\|　/
+match ZenkakuSpace /\s\+$\|　\|\t/
 
 " カーソル行をハイライト
 set cursorline
