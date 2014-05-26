@@ -245,6 +245,8 @@ alias glo='git log --oneline'
 alias gs='git status'
 alias gsb='git status -sb'
 alias ta='tmux a'
+alias topc='top -ocpu -n10 -s5'
+alias topm='top -omem -n10 -s5'
 
 # compdef
 compdef mosh=ssh
