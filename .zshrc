@@ -232,6 +232,7 @@ alias :q=exit
 alias p=popd
 alias bi='bundle install --path vendor/bundle --without production'
 alias be='bundle exec'
+alias rmigc='bundle exec rake db:migrate db:test:clone'
 alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
 alias g='git'
 alias ga='git add -A'
@@ -247,6 +248,7 @@ alias gsb='git status -sb'
 alias ta='tmux a'
 alias topc='top -ocpu -n10 -s5'
 alias topm='top -omem -n10 -s5'
+alias memo='vim ~/memo'
 
 # compdef
 compdef mosh=ssh
