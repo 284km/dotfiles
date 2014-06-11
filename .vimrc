@@ -11,7 +11,8 @@ else
 
   " git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
   set runtimepath+=~/.vim/bundle/neobundle.vim/
-  call neobundle#rc(expand('~/.vim/bundle/'))
+  call neobundle#begin(expand('~/.vim/bundle/'))
+  " call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
   " NeoBundle 'Shougo/neosnippet.vim'
   " NeoBundle 'Shougo/neosnippet-snippets'
@@ -52,6 +53,7 @@ else
   let g:calendar_google_calendar = 1
   let g:calendar_google_task = 1
 
+  call neobundle#end()
 endif
 
 " grep後にcwinを表示
