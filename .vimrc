@@ -6,23 +6,35 @@ filetype plugin off
 if has('win32')
 else
   " git clone http://github.com/gmarik/vundle.git ~/.vim/vundle.git
-  set rtp+=~/.vim/vundle.git/
-  call vundle#rc()
+  " set rtp+=~/.vim/vundle.git/
+  " call vundle#rc()
+
+  " git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  call neobundle#rc(expand('~/.vim/bundle/'))
+  NeoBundleFetch 'Shougo/neobundle.vim'
+  NeoBundle 'Shougo/neosnippet.vim'
+  NeoBundle 'Shougo/neosnippet-snippets'
+  NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'kien/ctrlp.vim'
+  NeoBundle 'flazz/vim-colorschemes'
+  " You can specify revision/branch/tag.
+  " NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
   " :BundleInstall!
   " Bundle 'rails.vim'
-  Bundle 'altercation/vim-colors-solarized'
+  NeoBundle 'altercation/vim-colors-solarized'
   " Bundle 'tpope/vim-rails'
-  Bundle 'Shougo/neocomplcache'
-  Bundle 'Shougo/unite.vim'
+  NeoBundle 'Shougo/neocomplcache'
+  NeoBundle 'Shougo/unite.vim'
   " Bundle 'unite.vim'
   " Bundle 'git://github.com/vim-ruby/vim-ruby.git'
 
   " ruby
-  Bundle 'vim-scripts/ruby-matchit'
+  NeoBundle 'vim-scripts/ruby-matchit'
 
-  Bundle 'nathanaelkane/vim-indent-guides'
-  Bundle 'tpope/vim-fugitive'
+  NeoBundle 'nathanaelkane/vim-indent-guides'
+  NeoBundle 'tpope/vim-fugitive'
   " Bundle 'scrooloose/nerdcommenter'
   " Bundle 'tpope/vim-surround'
   " Bundle 'thinca/vim-quickrun'
@@ -30,13 +42,13 @@ else
   " Bundle 'kana/vim-fakeclip'
 
   " :OverCommandLine で起動する
-  Bundle 'osyo-manga/vim-over'
+  NeoBundle 'osyo-manga/vim-over'
 
   " :Unite codic
-  Bundle 'koron/codic-vim'
-  Bundle 'rhysd/unite-codic.vim'
+  NeoBundle 'koron/codic-vim'
+  NeoBundle 'rhysd/unite-codic.vim'
 
-  Bundle 'itchyny/calendar.vim'
+  NeoBundle 'itchyny/calendar.vim'
   let g:calendar_google_calendar = 1
   let g:calendar_google_task = 1
 
