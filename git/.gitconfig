@@ -195,3 +195,6 @@
 #   generic = ^F move-page-down
 #   generic = ^B move-page-up
 
+[ghq]
+	root = ~/src
+
