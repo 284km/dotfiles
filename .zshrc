@@ -54,7 +54,8 @@ fi
 # for go lang
 if [ -x "`which go`" ]; then
   export GOROOT=`go env GOROOT`
-  export GOPATH=$HOME/go
+  # export GOPATH=$HOME/go
+  export GOPATH=$HOME
   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 # Go completion
