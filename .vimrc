@@ -81,14 +81,15 @@ elseif has('mac')
   set background=dark
 
 elseif has('unix')
-  " mac terminal
-  colorscheme desert
-  " let g:solarized_termcolors=256
-  " let g:solarized_termtrans=1
-  " let g:solarized_visibility="high"
-  " let g:solarized_contrast="high"
-  " colorscheme solarized
-  " set background=dark
+  " mac terminal, xubuntu
+  " colorscheme desert
+
+  let g:solarized_termcolors=256
+  let g:solarized_contrast="high"
+  let g:solarized_termtrans=0
+  colorscheme solarized
+  set background=dark
+
 " elseif has('xfontset')
 "   " UNIX用 (xfontsetを使用)
 "   set guifontset=a10,r10,k10
