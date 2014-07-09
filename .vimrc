@@ -42,6 +42,11 @@ else
   " Bundle 'thinca/vim-ref'
   " Bundle 'kana/vim-fakeclip'
 
+
+  " ファイルを tree 表示する
+  " :NERDTree
+  NeoBundle 'scrooloose/nerdtree'
+
   " :OverCommandLine で起動する
   NeoBundle 'osyo-manga/vim-over'
 
@@ -83,12 +88,14 @@ elseif has('mac')
 elseif has('unix')
   " mac terminal, xubuntu
   " colorscheme desert
+  colorscheme slate
 
-  let g:solarized_termcolors=256
-  let g:solarized_contrast="high"
-  let g:solarized_termtrans=0
-  colorscheme solarized
-  set background=dark
+  " let g:solarized_termcolors=256
+  " let g:solarized_contrast="high"
+  " " let g:solarized_termtrans=1
+  " colorscheme solarized
+  " set background=dark
+
 
 " elseif has('xfontset')
 "   " UNIX用 (xfontsetを使用)
