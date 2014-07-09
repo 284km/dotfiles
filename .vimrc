@@ -53,6 +53,9 @@ else
   " :NERDTree
   NeoBundle 'scrooloose/nerdtree'
 
+  " ANSIカラー情報が含まれる場合反映して表示する
+  NeoBundle 'vim-scripts/AnsiEsc.vim'
+
   " :OverCommandLine で起動する
   NeoBundle 'osyo-manga/vim-over'
 
