@@ -33,6 +33,10 @@ else
 
   " ruby
   NeoBundle 'vim-scripts/ruby-matchit'
+  " Ruby の end を自動挿入してくれる
+  NeoBundle 'tpope/vim-endwise'
+  " control-- でコメントの on off
+  NeoBundle 'tomtom/tcomment_vim'
 
   NeoBundle 'nathanaelkane/vim-indent-guides'
   NeoBundle 'tpope/vim-fugitive'
