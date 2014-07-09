@@ -38,7 +38,9 @@ else
   " control-- でコメントの on off
   NeoBundle 'tomtom/tcomment_vim'
 
+  " indent を色付きに見やすくする
   NeoBundle 'nathanaelkane/vim-indent-guides'
+
   NeoBundle 'tpope/vim-fugitive'
   " Bundle 'scrooloose/nerdcommenter'
   " Bundle 'tpope/vim-surround'
@@ -280,15 +282,19 @@ set completeopt=menu,preview
 " vim-indent-guides
 "===================================================================
 " vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
-" let g:indent_guides_enable_on_vim_startup=1
-" 1インデント目からガイドする
-let g:indent_guides_start_level=1
-" 自動カラーを無効にする
+let g:indent_guides_enable_on_vim_startup=1
+" " 1インデント目からガイドする
+" let g:indent_guides_start_level=1
+" " 自動カラーを無効にする
 let g:indent_guides_auto_colors=0
+
 " 奇数インデントのガイドカラー
-hi IndentGuidesOdd  ctermbg=yellow
+" hi IndentGuidesOdd  ctermbg=yellow
+hi IndentGuidesOdd  ctermbg=white
 " 偶数インデントのガイドカラー
-hi IndentGuidesEven ctermbg=gray
+" hi IndentGuidesEven ctermbg=gray
+hi IndentGuidesEven ctermbg=darkgray
+
 " ハイライト色の変化の幅 (Terminal では未サポート)
 "let g:indent_guides_color_change_percent = 20
 " ガイドの幅
