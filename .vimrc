@@ -314,4 +314,6 @@ filetype plugin indent on
 " memo
 ":so $VIMRUNTIME/syntax/colortest.vim
 
+" 保存したいが権限ないとき
+" :w !sudo tee % > /dev/null
 
