@@ -222,8 +222,10 @@ case ${OSTYPE} in
     # export LS_COLORS="di=01;34"
     export LS_COLORS="di=35;40"
     alias ls='ls -F --color'
+    # for clipboard
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
+    alias tmux-copy='tmux save-buffer - | pbcopy'
     ;;
 esac
 
