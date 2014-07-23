@@ -222,6 +222,8 @@ case ${OSTYPE} in
     # export LS_COLORS="di=01;34"
     export LS_COLORS="di=35;40"
     alias ls='ls -F --color'
+    alias pbcopy='xsel --clipboard --input'
+    alias pbpaste='xsel --clipboard --output'
     ;;
 esac
 
@@ -263,6 +265,16 @@ compdef mosh=ssh
 ### Added by the Heroku Toolbelt
 # export PATH="/usr/local/heroku/bin:$PATH"
 
+# postgresql
+case ${OSTYPE} in
+  darwin*)
+    ;;
+  linux*)
+    export POSTGRES_HOME='/usr/lib/postgresql/9.3/'
+    export POSTGRES_INCLUDE='/usr/include/postgresql'
+    export POSTGRES_LIB='/usr/lib/postgresql/9.3/lib'
+    ;;
+esac
 
 function peco-src () {
     local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
