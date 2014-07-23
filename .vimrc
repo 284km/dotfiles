@@ -31,6 +31,10 @@ else
   " Bundle 'unite.vim'
   " Bundle 'git://github.com/vim-ruby/vim-ruby.git'
 
+  " 関数などのアウトラインをいい感じに見られる
+  " :Unite outline
+  NeoBundle 'h1mesuke/unite-outline'
+
   " ruby
   NeoBundle 'vim-scripts/ruby-matchit'
   " Ruby の end を自動挿入してくれる
