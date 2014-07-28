@@ -33,7 +33,9 @@ else
 
   " 関数などのアウトラインをいい感じに見られる
   " :Unite outline
-  NeoBundle 'h1mesuke/unite-outline'
+  " NeoBundle 'h1mesuke/unite-outline'
+  " NeoBundle 'Shougo/unite-outline'
+  NeoBundle 'totem3/unite-outline'
 
   " ruby
   NeoBundle 'vim-scripts/ruby-matchit'
