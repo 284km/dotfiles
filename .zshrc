@@ -225,7 +225,7 @@ case ${OSTYPE} in
     # for clipboard
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
-    alias tmux-copy='tmux save-buffer - | pbcopy'
+    alias tmcp='tmux save-buffer - | pbcopy'
     ;;
 esac
 
