@@ -215,6 +215,7 @@ case ${OSTYPE} in
     alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
     alias mvim='open -a MacVim'
     alias chrome='open -a /Applications/Google\ Chrome.app'
+    alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
     ;;
   linux*)
     # LS_COLORS="di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
@@ -238,7 +239,6 @@ alias p=popd
 alias bi='bundle install --path vendor/bundle --without production'
 alias be='bundle exec'
 alias rmigc='bundle exec rake db:migrate db:test:clone'
-alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
 alias g='git'
 alias ga='git add -A'
 alias gb='git branch -a'
@@ -307,6 +307,53 @@ function peco-select-history() {
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+
+function peco-cd () {
+  local selected_dir=$(find ~/ -type d | peco)
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-cd
+bindkey '^x^f' peco-cd
+
+
+peco-find-cd() {
+  local FILENAME="$1"
+  local MAXDEPTH="${2:-3}"
+  local BASE_DIR="${3:-`pwd`}"
+
+  if [ -z "$FILENAME" ] ; then
+    echo "Usage: peco-find-cd <FILENAME> [<MAXDEPTH> [<BASE_DIR>]]" >&2
+    return 1
+  fi
+
+  local DIR=$(find ${BASE_DIR} -maxdepth ${MAXDEPTH} -name ${FILENAME} | peco | head -n 1)
+
+  if [ -n "$DIR" ] ; then
+    DIR=${DIR%/*}
+    echo "pushd \"$DIR\""
+    pushd "$DIR"
+  fi
+}
+
+peco-git-cd() {
+  peco-find-cd ".git" "$@"
+}
+
+peco-docker-cd() {
+  peco-find-cd "Dockerfile" "$@"
+}
+
+peco-vagrant-cd() {
+  peco-find-cd "Vagrantfile" "$@"
+}
+
+peco-go-cd() {
+  peco-find-cd ".git" 5 "$GOPATH"
+}
 
 # -------------------------------------------------------------------------
 
