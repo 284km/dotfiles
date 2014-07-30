@@ -231,6 +231,7 @@ case ${OSTYPE} in
 esac
 
 alias ..='cd ..'
+alias l='ls -al'
 alias la='ls -al'
 alias lr='ls -altrh'
 alias mv='mv -i'
