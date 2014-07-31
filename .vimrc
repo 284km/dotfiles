@@ -139,9 +139,8 @@ inoremap <C-k> <C-o>D
 
 set directory=~/swp
 
-" TODO: Mac で大丈夫か? ubuntu では ok
-" set clipboard=unnamed,autoselect
-set clipboard=unnamedplus
+set clipboard=unnamed,autoselect
+" set clipboard=unnamedplus
 
 set nu
 "印刷時行番号も出力
