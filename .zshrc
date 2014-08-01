@@ -227,6 +227,7 @@ case ${OSTYPE} in
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
     alias tmcp='tmux save-buffer - | pbcopy'
+    alias chrome='/usr/bin/google-chrome'
     ;;
 esac
 
