@@ -102,14 +102,15 @@ elseif has('mac')
 
 elseif has('unix')
   " mac terminal, xubuntu
-  " colorscheme desert
-  colorscheme slate
+  " colorscheme slate
+  colorscheme elflord
+  " colorscheme pablo
 
-  " let g:solarized_termcolors=256
-  " let g:solarized_contrast="high"
-  " let g:solarized_termtrans=1
+  let g:solarized_termcolors=256
+  let g:solarized_contrast="high"
+  let g:solarized_termtrans=1
   " colorscheme solarized
-  " set background=dark
+  set background=dark
 
 
 " elseif has('xfontset')
