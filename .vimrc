@@ -107,7 +107,7 @@ elseif has('unix')
 
   " let g:solarized_termcolors=256
   " let g:solarized_contrast="high"
-  " " let g:solarized_termtrans=1
+  " let g:solarized_termtrans=1
   " colorscheme solarized
   " set background=dark
 
@@ -139,8 +139,8 @@ inoremap <C-k> <C-o>D
 
 set directory=~/swp
 
-set clipboard=unnamed,autoselect
-" set clipboard=unnamedplus
+" set clipboard=unnamed,autoselect
+set clipboard=unnamedplus
 
 set nu
 "印刷時行番号も出力
