@@ -302,10 +302,14 @@ let g:indent_guides_auto_colors=0
 
 " 奇数インデントのガイドカラー
 " hi IndentGuidesOdd  ctermbg=yellow
-hi IndentGuidesOdd  ctermbg=white
+" hi IndentGuidesOdd  ctermbg=white
 " 偶数インデントのガイドカラー
 " hi IndentGuidesEven ctermbg=gray
-hi IndentGuidesEven ctermbg=darkgray
+" hi IndentGuidesEven ctermbg=darkgray
+
+" on Xubuntu
+hi IndentGuidesOdd  ctermbg=magenta
+hi IndentGuidesEven ctermbg=white
 
 " ハイライト色の変化の幅 (Terminal では未サポート)
 "let g:indent_guides_color_change_percent = 20
