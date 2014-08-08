@@ -26,7 +26,11 @@ else
   " Bundle 'rails.vim'
   NeoBundle 'altercation/vim-colors-solarized'
   " Bundle 'tpope/vim-rails'
-  NeoBundle 'Shougo/neocomplcache'
+
+  " NeoBundle 'Shougo/neocomplcache'
+  NeoBundle 'Shougo/neocomplete'
+  let g:neocomplete#enable_at_startup = 1
+
   NeoBundle 'Shougo/unite.vim'
   " Bundle 'unite.vim'
 
