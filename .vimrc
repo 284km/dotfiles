@@ -36,6 +36,7 @@ else
   "セーフモードを無効にした状態で起動する
   let g:vimfiler_safe_mode_by_default = 0
   " :VimFiler -split -simple -winwidth=35 -no-quit コマンドで、IDEのファイルエクスプローラのような見た目になります。長いので.vimrcでマップして呼び出しましょう。
+  "  => :Vimfiler -explorer で事足りてるからいいか。
 
   " Bundle 'git://github.com/vim-ruby/vim-ruby.git'
 
