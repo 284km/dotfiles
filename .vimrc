@@ -127,17 +127,17 @@ elseif has('unix')
   set background=dark
 
 
-set clipboard=unnamedplus
+  set clipboard=unnamedplus
 
-hi clear CursorLine
-hi CursorLine gui=underline
-" highlight CursorLine ctermbg=darkblue guibg=darkblue
-" highlight CursorLine ctermbg=0 ctermfg=White guibg=darkblue
-" highlight CursorLine ctermbg=#222222 guibg=darkblue
-highlight CursorLine ctermbg=8 guibg=darkblue
-highlight Search ctermbg=3
-highlight Visual ctermbg=2
-hi LineNr term=bold ctermfg=239 ctermbg=none gui=bold guifg=Black
+  hi clear CursorLine
+  hi CursorLine gui=underline
+  " highlight CursorLine ctermbg=darkblue guibg=darkblue
+  " highlight CursorLine ctermbg=0 ctermfg=White guibg=darkblue
+  " highlight CursorLine ctermbg=#222222 guibg=darkblue
+  highlight CursorLine ctermbg=8 guibg=darkblue
+  highlight Search ctermbg=3
+  highlight Visual ctermbg=2
+  hi LineNr term=bold ctermfg=239 ctermbg=none gui=bold guifg=Black
 
 
 " elseif has('xfontset')
