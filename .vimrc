@@ -113,6 +113,8 @@ elseif has('mac')
   colorscheme solarized
   set background=dark
 
+set clipboard=unnamed,autoselect
+
 elseif has('unix')
   " mac terminal, xubuntu
   " colorscheme slate
@@ -123,6 +125,19 @@ elseif has('unix')
   let g:solarized_termtrans=1
   " colorscheme solarized
   set background=dark
+
+
+set clipboard=unnamedplus
+
+hi clear CursorLine
+hi CursorLine gui=underline
+" highlight CursorLine ctermbg=darkblue guibg=darkblue
+" highlight CursorLine ctermbg=0 ctermfg=White guibg=darkblue
+" highlight CursorLine ctermbg=#222222 guibg=darkblue
+highlight CursorLine ctermbg=8 guibg=darkblue
+highlight Search ctermbg=3
+highlight Visual ctermbg=2
+hi LineNr term=bold ctermfg=239 ctermbg=none gui=bold guifg=Black
 
 
 " elseif has('xfontset')
@@ -152,9 +167,6 @@ inoremap <C-d> <Del>
 inoremap <C-k> <C-o>D
 
 set directory=~/swp
-
-" set clipboard=unnamed,autoselect
-set clipboard=unnamedplus
 
 set nu
 "印刷時行番号も出力
@@ -295,18 +307,6 @@ augroup cch
   autocmd WinLeave * set nocursorline
   autocmd WinEnter,BufRead * set cursorline
 augroup END
-
-hi clear CursorLine
-hi CursorLine gui=underline
-" highlight CursorLine ctermbg=darkblue guibg=darkblue
-" highlight CursorLine ctermbg=0 ctermfg=White guibg=darkblue
-" highlight CursorLine ctermbg=#222222 guibg=darkblue
-highlight CursorLine ctermbg=8 guibg=darkblue
-hi LineNr term=bold ctermfg=239 ctermbg=none gui=bold guifg=Black
-" hi LineNr term=bold ctermfg=239 ctermbg=8 gui=bold guifg=Black
-" highlight Search ctermbg=yellow
-highlight Search ctermbg=3
-highlight Visual ctermbg=2
 
 " 補完内容が詳細に表示されるようになる
 set completeopt=menu,preview
