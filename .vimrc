@@ -29,6 +29,14 @@ else
   NeoBundle 'Shougo/neocomplcache'
   NeoBundle 'Shougo/unite.vim'
   " Bundle 'unite.vim'
+
+  NeoBundle 'Shougo/vimfiler'
+  "vimデフォルトのエクスプローラをvimfilerで置き換える(e.g. :e .)
+  let g:vimfiler_as_default_explorer = 1
+  "セーフモードを無効にした状態で起動する
+  let g:vimfiler_safe_mode_by_default = 0
+  " :VimFiler -split -simple -winwidth=35 -no-quit コマンドで、IDEのファイルエクスプローラのような見た目になります。長いので.vimrcでマップして呼び出しましょう。
+
   " Bundle 'git://github.com/vim-ruby/vim-ruby.git'
 
   " 関数などのアウトラインをいい感じに見られる
@@ -57,7 +65,7 @@ else
 
   " ファイルを tree 表示する
   " :NERDTree
-  NeoBundle 'scrooloose/nerdtree'
+  " NeoBundle 'scrooloose/nerdtree'
 
   " ANSIカラー情報が含まれる場合反映して表示する
   NeoBundle 'vim-scripts/AnsiEsc.vim'
@@ -105,7 +113,6 @@ elseif has('unix')
   " colorscheme slate
   colorscheme elflord
   " colorscheme pablo
-
   let g:solarized_termcolors=256
   let g:solarized_contrast="high"
   let g:solarized_termtrans=1
@@ -130,6 +137,7 @@ set tags=./tags,tags;$HOME
 " ctags で対象複数の場合は一覧表示する
 nnoremap <C-]> g<C-]>
 
+" insert normal remap
 " Insert mode でのカーソル移動
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
@@ -286,7 +294,14 @@ augroup END
 hi clear CursorLine
 hi CursorLine gui=underline
 " highlight CursorLine ctermbg=darkblue guibg=darkblue
-highlight CursorLine ctermbg=0 guibg=darkblue
+" highlight CursorLine ctermbg=0 ctermfg=White guibg=darkblue
+" highlight CursorLine ctermbg=#222222 guibg=darkblue
+highlight CursorLine ctermbg=8 guibg=darkblue
+hi LineNr term=bold ctermfg=239 ctermbg=none gui=bold guifg=Black
+" hi LineNr term=bold ctermfg=239 ctermbg=8 gui=bold guifg=Black
+" highlight Search ctermbg=yellow
+highlight Search ctermbg=3
+highlight Visual ctermbg=2
 
 " 補完内容が詳細に表示されるようになる
 set completeopt=menu,preview
@@ -330,4 +345,13 @@ filetype plugin indent on
 
 " 保存したいが権限ないとき
 " :w !sudo tee % > /dev/null
+
+" モード	再割当有り	再割当無し
+" ノーマルモード＋ビジュアルモード	noremap	map
+" コマンドラインモード＋インサートモード	noremap!	map!
+" ノーマルモード	nnoremap	nmap
+" ビジュアル(選択)モード	vnoremap	vmap
+" コマンドラインモード	cnoremap	cmap
+" インサート(挿入)モード	inoremap	imap
+
 
