@@ -50,6 +50,14 @@ else
   " NeoBundle 'Shougo/unite-outline'
   NeoBundle 'totem3/unite-outline'
 
+  " syntax check
+  " :SyntasticCheck, :Errors
+  NeoBundle 'scrooloose/syntastic'
+  let g:syntastic_enable_signs=1
+  let g:syntastic_auto_loc_list=2
+  let g:syntastic_ruby_checkers = ['rubocop']
+  " let g:syntastic_disabled_filetypes=['html']
+
   " ruby
   NeoBundle 'vim-scripts/ruby-matchit'
   " Ruby の end を自動挿入してくれる
@@ -126,20 +134,9 @@ elseif has('unix')
   " colorscheme solarized
   set background=dark
 
-
   set clipboard=unnamedplus
 
-  hi clear CursorLine
-  hi CursorLine gui=underline
-  " highlight CursorLine ctermbg=darkblue guibg=darkblue
-  " highlight CursorLine ctermbg=0 ctermfg=White guibg=darkblue
-  " highlight CursorLine ctermbg=#222222 guibg=darkblue
-  highlight CursorLine ctermbg=8 guibg=darkblue
-  highlight Search ctermbg=3
-  highlight Visual ctermbg=2
-  hi LineNr term=bold ctermfg=239 ctermbg=none gui=bold guifg=Black
-
-
+  
 " elseif has('xfontset')
 "   " UNIX用 (xfontsetを使用)
 "   set guifontset=a10,r10,k10
@@ -299,14 +296,33 @@ syntax on
 highlight ZenkakuSpace ctermbg=6 guibg=cyan
 match ZenkakuSpace /\s\+$\|　\|\t/
 
-" カーソル行をハイライト
-set cursorline
-" カレントウィンドウにのみ罫線を引く
-augroup cch
-  autocmd! cch
-  autocmd WinLeave * set nocursorline
-  autocmd WinEnter,BufRead * set cursorline
-augroup END
+
+if has('win32')
+elseif has('mac')
+elseif has('unix')
+  " カーソル行をハイライト
+  set cursorline
+  " カレントウィンドウにのみ罫線を引く
+  augroup cch
+    autocmd! cch
+    autocmd WinLeave * set nocursorline
+    autocmd WinEnter,BufRead * set cursorline
+  augroup END
+ 
+  hi clear CursorLine
+    hi CursorLine gui=underline
+    " highlight CursorLine ctermbg=darkblue guibg=darkblue
+    " highlight CursorLine ctermbg=0 ctermfg=White guibg=darkblue
+    " highlight CursorLine ctermbg=#222222 guibg=darkblue
+    highlight CursorLine ctermbg=8 guibg=darkblue
+    highlight Search ctermbg=3
+    highlight Visual ctermbg=2
+    hi LineNr term=bold ctermfg=239 ctermbg=none gui=bold guifg=Black
+
+else
+endif
+
+
 
 " 補完内容が詳細に表示されるようになる
 set completeopt=menu,preview
