@@ -75,9 +75,9 @@
 #   mn  = merge --no-ff
 #   rebase-and-merge = "!f() { git checkout $2 && git rebase --merge --no-ff $1 && git checkout $1 && git merge --no-ff $2 && echo '' && echo \"branch $2 is rebased onto $1 and merged into $1\"; }; f"
 #   ram = "!f() { git rebase-and-merge $1 $2 ;}; f"
-#   # comit
+  # comit
 #   ad  = add
-#   c   = commit
+  c   = commit
 #   ci  = commit -a           # modifiedなファイルを全てstageへ
 #   cam = commit -a --amend   # 直前のcommitを修正
 #   co  = checkout
