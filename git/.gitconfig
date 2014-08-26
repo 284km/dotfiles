@@ -91,11 +91,11 @@
 #   bm  = branch --merged     # merge済みのbranchを表示
 #   bn  = branch --no-merged  # mergeしてないbranchを表示
 #   bo  = branch -r           # remote branchを表示
-#   # log関連
+  # log関連
 #   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
 #   wc  = whatchanged         # logに変更されたファイルも一緒に出す
-#   ls  = log --stat          # logに変更されたファイルも一緒に出す
-#   lp  = log -p              # diffも一緒に出す
+  ls  = log --stat          # logに変更されたファイルも一緒に出す
+  lp  = log -p              # diffも一緒に出す
 #   la  = log --pretty=\"format:%ad %h (%an): %s\" --date=short  # ざっくりログ出す
 #   lr  = log origin          # originのlog
 #   ll = log --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn%x09%Creset%s' # onelineでlogを出す
@@ -156,9 +156,9 @@
 #   # colorized cheery -v
 #   cch= "!f() { git cherry -v "$@" | awk '{ if($1 == \"+\"){ color = \"green\" } if($1 == \"-\"){ color = \"red\" } cmd = \"git show --date=short --no-notes --pretty=format:\\047%C\" color $1 \" %h %Cgreen%cd %Cblue%cn%x09%Creset%s\\047 --summary \" $2; cmd | getline t; close(cmd); print t }' ;}; f"
 # 
-#   # grep関連
-#   gr = grep
-#   gn = grep -n
+  # grep関連
+  gr = grep
+  gn = grep -n
 #   sm = submodule
 #   smupdate = submodule foreach "git checkout master; git pull origin master"
 #   # stash関連(stashもう使わないのでコメントあうと)
