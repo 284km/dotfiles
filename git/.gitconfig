@@ -78,7 +78,7 @@
   # comit
 #   ad  = add
   c   = commit
-#   ci  = commit -a           # modifiedなファイルを全てstageへ
+  ca  = commit -a           # modifiedなファイルを全てstageへ
 #   cam = commit -a --amend   # 直前のcommitを修正
   co  = checkout
   cb  = checkout -b         # branch切ってcheckoutする
