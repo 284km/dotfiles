@@ -80,11 +80,11 @@
   c   = commit
 #   ci  = commit -a           # modifiedなファイルを全てstageへ
 #   cam = commit -a --amend   # 直前のcommitを修正
-#   co  = checkout
-#   cb  = checkout -b         # branch切ってcheckoutする
+  co  = checkout
+  cb  = checkout -b         # branch切ってcheckoutする
 #   ct  = checkout --track    # remoteのbranchを追跡
-#   cm  = checkout master
-#   cd  = checkout develop
+  cm  = checkout master
+  cd  = checkout develop
 #   # branch関連
 #   br  = branch
 #   ba  = branch -a           # originも含めた全てのbranchを表示
