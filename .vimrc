@@ -23,6 +23,7 @@ else
   " NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
   " :BundleInstall!
+  " :NeoBundleInstall!
   " Bundle 'rails.vim'
   NeoBundle 'altercation/vim-colors-solarized'
   " Bundle 'tpope/vim-rails'
@@ -93,6 +94,15 @@ else
   NeoBundle 'itchyny/calendar.vim'
   let g:calendar_google_calendar = 1
   let g:calendar_google_task = 1
+
+  " tweetvim
+  " NeoBundle 'basyura/TweetVim'
+  " NeoBundle 'mattn/webapi-vim'
+  " NeoBundle 'basyura/twibill.vim'
+  " NeoBundle 'tyru/open-browser.vim'
+  " " NeoBundle 'h1mesuke/unite-outline' 上でもういれてる
+  " " NeoBundle 'Shougo/unite.vim' 上でもういれてる
+  " NeoBundle 'basyura/bitly.vim'
 
   call neobundle#end()
 endif
