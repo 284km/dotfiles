@@ -370,6 +370,7 @@ let g:indent_guides_guide_size = 1
 
 filetype plugin indent on
 
+set notitle
 
 " memo
 ":so $VIMRUNTIME/syntax/colortest.vim
