@@ -391,7 +391,8 @@ function static_httpd {
   fi
 }
 
-# -------------------------------------------------------------------------
+# include
+[ -f $HOME/dotfiles/zsh/.http_status ] && source $HOME/dotfiles/zsh/.http_status
 
 # 個別設定を読み込む
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
