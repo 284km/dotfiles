@@ -179,7 +179,7 @@ inoremap <C-f> <Right>
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 inoremap <C-d> <Del>
-inoremap <C-k> <C-o>D
+" inoremap <C-k> <C-o>D
 
 set directory=~/swp
 
@@ -251,9 +251,12 @@ set wildmenu
 
 
 set smartcase
-" set statusline=%<%f\ %m%r%h%w%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %8P
-" set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'.fugitive#statusline()}%=%-14.(%l,%c%V%)\ %8P
 set wrapscan
+
+" airline に置き換えられた
+" set statusline=%<%f\ %m%r%h%w%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %8P
+" git の branch 表示する設定
+" set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'.fugitive#statusline()}%=%-14.(%l,%c%V%)\ %8P
 
 "autocmd CursorHold * update
 set updatetime=500
