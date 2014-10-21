@@ -63,6 +63,10 @@ else
   let g:syntastic_ruby_checkers = ['rubocop']
   " let g:syntastic_disabled_filetypes=['html']
 
+
+  NeoBundle 'bling/vim-airline'
+  let g:airline#extensions#tabline#enabled = 1
+
   " ruby
   NeoBundle 'vim-scripts/ruby-matchit'
   " Ruby の end を自動挿入してくれる
@@ -248,7 +252,7 @@ set wildmenu
 
 set smartcase
 " set statusline=%<%f\ %m%r%h%w%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %8P
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'.fugitive#statusline()}%=%-14.(%l,%c%V%)\ %8P
+" set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'.fugitive#statusline()}%=%-14.(%l,%c%V%)\ %8P
 set wrapscan
 
 "autocmd CursorHold * update
