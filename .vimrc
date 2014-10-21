@@ -14,8 +14,6 @@ else
   call neobundle#begin(expand('~/.vim/bundle/'))
   " call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
-  " NeoBundle 'Shougo/neosnippet.vim'
-  " NeoBundle 'Shougo/neosnippet-snippets'
   " NeoBundle 'tpope/vim-fugitive'
   " NeoBundle 'kien/ctrlp.vim'
   " NeoBundle 'flazz/vim-colorschemes'
@@ -31,6 +29,12 @@ else
   " NeoBundle 'Shougo/neocomplcache'
   NeoBundle 'Shougo/neocomplete'
   let g:neocomplete#enable_at_startup = 1
+
+  " neosnippet
+  NeoBundle 'Shougo/neosnippet.vim'
+  NeoBundle 'Shougo/neosnippet-snippets'
+  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 
   NeoBundle 'Shougo/unite.vim'
   " Bundle 'unite.vim'
