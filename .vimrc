@@ -167,6 +167,12 @@ endif
 nnoremap j gj
 nnoremap k gk
 
+" vimgrep の検索結果など、Quickfix 操作用
+" :cw[indow] で window open
+nnoremap [q :cprevious<CR>   " 前へ
+nnoremap ]q :cnext<CR>       " 次へ
+nnoremap [Q :<C-u>cfirst<CR> " 最初へ
+nnoremap ]Q :<C-u>clast<CR>  " 最後へ
 
 set tags=./tags,tags;$HOME
 " ctags で対象複数の場合は一覧表示する
