@@ -28,3 +28,6 @@ nytprof
 # Ignore other unneeded files.
 doc/
 
+# my working files
+,/
+
