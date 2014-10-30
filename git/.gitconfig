@@ -102,6 +102,7 @@
 #   ll1 = log --date=short --max-count=1 --pretty=format:'%Cgreen%h %cd %Cblue%cn%x09%Creset%s' # onelineでlogを出す
 #   lll = log --date=short --max-count=10 --pretty=format:'%Cgreen%h %cd %Cblue%cn%x09%Creset%s' # onelineでlogを出す
 #   oneline = log --pretty=oneline
+  lo  = log --decorate --pretty=oneline
 #   ranking = shortlog -s -n --no-merges
 #   # logをtree表示
 #   log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
