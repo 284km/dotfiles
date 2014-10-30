@@ -60,17 +60,17 @@
   pu  = push -u origin      # push origin and set upstream
 #   # push current branch to origin with --upstream
 #   puc = "!f() { git push origin -u `git symbolic-ref --short HEAD` ;}; f"
-#   # rebase
-#   rbm = rebase --merge master       # masterへのrebaseはよく使うのでalias
+  # rebase
+  rbm = rebase --merge master       # masterへのrebaseはよく使うのでalias
 #   rbd = rebase --merge develop
-#   rbc = rebase --continue
-#   rba = rebase --abort
-#   rbi = rebase -i
-#   rbi1 = rebase -i HEAD^
-#   rbi2 = rebase -i HEAD^^
-#   rbi3 = rebase -i HEAD^^^
-#   rbi4 = rebase -i HEAD^^^^
-#   rbi5 = rebase -i HEAD^^^^^
+  rbc = rebase --continue
+  rba = rebase --abort
+  rbi = rebase -i
+  rbi1 = rebase -i HEAD^
+  rbi2 = rebase -i HEAD^^
+  rbi3 = rebase -i HEAD^^^
+  rbi4 = rebase -i HEAD^^^^
+  rbi5 = rebase -i HEAD^^^^^
 #   # merge
 #   mn  = merge --no-ff
 #   rebase-and-merge = "!f() { git checkout $2 && git rebase --merge --no-ff $1 && git checkout $1 && git merge --no-ff $2 && echo '' && echo \"branch $2 is rebased onto $1 and merged into $1\"; }; f"
