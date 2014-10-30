@@ -85,12 +85,12 @@
 #   ct  = checkout --track    # remoteのbranchを追跡
   cm  = checkout master
   cd  = checkout develop
-#   # branch関連
-#   br  = branch
-#   ba  = branch -a           # originも含めた全てのbranchを表示
-#   bm  = branch --merged     # merge済みのbranchを表示
-#   bn  = branch --no-merged  # mergeしてないbranchを表示
-#   bo  = branch -r           # remote branchを表示
+  # branch関連
+  br  = branch
+  ba  = branch -a           # originも含めた全てのbranchを表示
+  bm  = branch --merged     # merge済みのbranchを表示
+  bn  = branch --no-merged  # mergeしてないbranchを表示
+  bo  = branch -r           # remote branchを表示
   # log関連
 #   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
 #   wc  = whatchanged         # logに変更されたファイルも一緒に出す
