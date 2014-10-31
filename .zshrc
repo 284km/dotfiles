@@ -309,6 +309,13 @@ function peco-src () {
 zle -N peco-src
 bindkey '^]' peco-src
 
+function e () {
+    local selected_file=$(git ls-files | peco --query "$LBUFFER")
+    if [ -n "$selected_file" ]; then
+      vim ${selected_file}
+    fi
+}
+
 function peco-select-history() {
   local tac
   if which tac > /dev/null; then
