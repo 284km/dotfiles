@@ -50,9 +50,10 @@
   pull-dry-run  = !"git fetch origin; B=$(git rev-parse --abbrev-ref HEAD); git diff --stat --summary ${B}..origin/${B}"
 
   s   = status
+  sb  = status -bs
   ss  = status -s
 #   sh  = show
-#   so  = remote show origin
+  so  = remote show origin
 #   # pull/push/fetch
 #   ft  = fetch
 #   ftp = fetch --prune
