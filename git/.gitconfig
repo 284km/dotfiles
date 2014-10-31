@@ -1,6 +1,8 @@
 [user]
   name = 284km
-  email = k.furuhashi10@gmail.com
+# そのうち消す
+#  email = k.furuhashi10@gmail.com
+  email = at284km@gmail.com
 [color]
   # ui = auto
   # colorの設定(以下のコマンドは自動で色つける)
