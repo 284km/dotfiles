@@ -239,6 +239,11 @@ case ${OSTYPE} in
 esac
 
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
 alias l='ls -al'
 alias la='ls -al'
 alias lr='ls -altrh'
