@@ -256,7 +256,10 @@ alias gc='git checkout'
 alias gcb='git checkout -b'
 alias gd='git diff'
 alias gdc='git diff --cached'
-alias gl='git log'
+
+# いらなそう。そのうちけすよてい
+# alias gl='git log'
+
 # alias glo='git log --oneline'
 alias glo='git log --decorate --pretty=oneline'
 alias gs='git status'
