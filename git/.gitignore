@@ -9,6 +9,7 @@
 .#*
 .DS_Store
 *.sw[po]
+.*.un~
 *.tmp
 tags
 Session.vim
