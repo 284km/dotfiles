@@ -217,6 +217,11 @@ set nobackup
 " set backupdir=~/.vimbackup
 " let &directory = &backupdir
 
+" Undo履歴をファイルに保存する
+" set undodir=$HOME/.vim/undodir
+" set undofile
+set noundofile
+
 " 自動再読み込み
 set autoread
 
