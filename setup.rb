@@ -33,7 +33,7 @@ cd "~".expand
 if "dotfiles".expand.exist?
   cd "dotfiles"
 else
-#  sh "git clone git@github.com:idkazuma/dotfiles.git dotfiles"
+#  sh "git clone git@github.com:284km/dotfiles.git dotfiles"
   cd "dotfiles"
 end
 
@@ -64,6 +64,8 @@ link ".bashrc", "~/.bashrc"
 # link ".screen", "~/.screen"
 
 link ".tmux.conf", "~/.tmux.conf"
+
+link ".siegerc", "~/.siegerc"
 
 # link ".bvirc", "~/.bvirc"
 # link ".rascutrc", "~/.rascutrc"
