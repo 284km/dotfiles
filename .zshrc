@@ -275,7 +275,7 @@ alias topm='top -omem -n10 -s5'
 
 alias memo='vim ~/memo'
 alias datet='date +%Y%m%d%H%M'
-alias bdate='date +%Y-%m-%d'
+alias date-='date +%Y-%m-%d'
 
 # compdef
 compdef mosh=ssh
