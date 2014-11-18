@@ -64,6 +64,9 @@ else
   " let g:syntastic_disabled_filetypes=['html']
 
 
+  " slim syntax
+  NeoBundle "slim-template/vim-slim"
+
   NeoBundle 'bling/vim-airline'
   let g:airline#extensions#tabline#enabled = 1
 
