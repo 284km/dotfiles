@@ -200,6 +200,15 @@ inoremap <C-e> <End>
 inoremap <C-d> <Del>
 " inoremap <C-k> <C-o>D
 
+
+" autocmdは対応したイベントが発生したときに指定したコマンドを実行します。
+" 今回の場合、「新しいファイルを開いたとき(BufNewFile)」または「既存のファイルを読み込んだとき(BufRead)」に、
+" 「拡張子が *.XX であれば」nnoremap以降を実行する、という指定になります。
+autocmd BufNewFile,BufRead *.rb nnoremap <C-x> :!ruby %
+autocmd BufNewFile,BufRead *.py nnoremap <C-x> :!python %
+autocmd BufNewFile,BufRead *.pl nnoremap <C-x> :!perl %
+
+
 set directory=~/swp
 
 set nu
