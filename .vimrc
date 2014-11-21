@@ -58,9 +58,13 @@ else
   " syntax check
   " :SyntasticCheck, :Errors
   NeoBundle 'scrooloose/syntastic'
-  let g:syntastic_enable_signs=1
-  let g:syntastic_auto_loc_list=2
+"  let g:syntastic_enable_signs=1
+  " syntastic_auto_loc_listを1にしとくと error で Quickfix が立ち上がる
+  let g:syntastic_auto_loc_list=1
+"  let g:syntastic_check_on_open=1
+  " let g:syntastic_auto_loc_list=2
   let g:syntastic_ruby_checkers = ['rubocop']
+  let g:syntastic_javascript_checker = 'jshint'
   " let g:syntastic_disabled_filetypes=['html']
 
 
