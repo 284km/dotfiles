@@ -68,8 +68,9 @@ else
   " let g:syntastic_disabled_filetypes=['html']
 
 
-  " slim syntax
+  " syntax
   NeoBundle "slim-template/vim-slim"
+  NeoBundle "kchmck/vim-coffee-script"
 
   NeoBundle 'bling/vim-airline'
   let g:airline#extensions#tabline#enabled = 1
