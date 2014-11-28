@@ -75,6 +75,10 @@ else
   NeoBundle 'bling/vim-airline'
   let g:airline#extensions#tabline#enabled = 1
 
+
+  " html タグへの展開は C-y,
+  NeoBundle 'mattn/emmet-vim'
+
   " ruby
   NeoBundle 'vim-scripts/ruby-matchit'
   " Ruby の end を自動挿入してくれる
