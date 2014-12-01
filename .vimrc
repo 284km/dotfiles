@@ -209,13 +209,22 @@ inoremap <C-e> <End>
 inoremap <C-d> <Del>
 " inoremap <C-k> <C-o>D
 
+" :au[tocmd] [group] {event} {pat} [nested] {cmd}
+" - [group]を指定していないautocmdをvimrc内に記述していると、vimrcを再読み込みするたびにそのautocmdが登録されてしまいます。 
+"   vimrcを読み込んだ回数だけautocmdが実行され段々Vimが重くなっていきます。
+" - autocmdは対応したイベントが発生したときに指定したコマンドを実行します。
+"   今回の場合、「新しいファイルを開いたとき(BufNewFile)」または「既存のファイルを読み込んだとき(BufRead)」に、
+"   「拡張子が *.XX であれば」nnoremap以降を実行する、という指定になります。
+augroup vimrc
+  " これを宣言することでグループvimrcに属するautocmdを初期化できます。
+  " autocmd!が現在のグループに属しているautocmdをすべて登録解除するので、
+  " その後にグループvimrcに属したautocmdを使えばOKです。
+  autocmd!
+augroup END
 
-" autocmdは対応したイベントが発生したときに指定したコマンドを実行します。
-" 今回の場合、「新しいファイルを開いたとき(BufNewFile)」または「既存のファイルを読み込んだとき(BufRead)」に、
-" 「拡張子が *.XX であれば」nnoremap以降を実行する、という指定になります。
-autocmd BufNewFile,BufRead *.rb nnoremap <C-x> :!ruby %
-autocmd BufNewFile,BufRead *.py nnoremap <C-x> :!python %
-autocmd BufNewFile,BufRead *.pl nnoremap <C-x> :!perl %
+autocmd vimrc BufNewFile,BufRead *.rb nnoremap <C-x> :!ruby %
+autocmd vimrc BufNewFile,BufRead *.py nnoremap <C-x> :!python %
+autocmd vimrc BufNewFile,BufRead *.pl nnoremap <C-x> :!perl %
 
 
 set directory=~/swp
