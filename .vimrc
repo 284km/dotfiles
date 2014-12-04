@@ -60,7 +60,7 @@ else
   NeoBundle 'scrooloose/syntastic'
 "  let g:syntastic_enable_signs=1
   " syntastic_auto_loc_listを1にしとくと error で Quickfix が立ち上がる
-  let g:syntastic_auto_loc_list=1
+  " let g:syntastic_auto_loc_list=1
 "  let g:syntastic_check_on_open=1
   " let g:syntastic_auto_loc_list=2
   let g:syntastic_ruby_checkers = ['rubocop']
@@ -325,8 +325,17 @@ inoremap ,date <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
 inoremap ,bdate <C-R>=strftime("date: %Y-%m-%d %H:%M")<CR>
 inoremap ,todo todo: <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
 inoremap ,done done: <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
+inoremap #!ruby #!/usr/bin/env ruby
+inoremap #!sh #!/bin/sh
+
+" Abbreviations
+" http://vim-jp.org/vimdoc-ja/map.html#abbreviations
+" ab コマンドラインモードと挿入モードの短縮入力の設定
+" ca コマンドラインモードの短縮入力の設定
+" ia 挿入モードの短縮入力の設定
 iabbrev ,# # -------------------------------------------------------------------------
 iabbrev .# # =========================================================================
+" iabbrev ,#ruby #!/usr/bin/env ruby
 
 " perl test
 "       augroup filetypedetect
@@ -440,10 +449,10 @@ set notitle
 " 保存したいが権限ないとき
 " :w !sudo tee % > /dev/null
 
-" モード	再割当有り	再割当無し
-" ノーマルモード＋ビジュアルモード	noremap	map
-" コマンドラインモード＋インサートモード	noremap!	map!
-" ノーマルモード	nnoremap	nmap
+" モード 再割当有り 再割当無し
+" ノーマルモード＋ビジュアルモード noremap map
+" コマンドラインモード＋インサートモード noremap! map!
+" ノーマルモード nnoremap nmap
 " ビジュアル(選択)モード	vnoremap	vmap
 " コマンドラインモード	cnoremap	cmap
 " インサート(挿入)モード	inoremap	imap
