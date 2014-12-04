@@ -410,6 +410,16 @@ function static_httpd {
   fi
 }
 
+# mysql
+function SELECT () {
+    mysql -uroot -e "SET NAMES utf8; SELECT $*"
+}
+function SHOW () {
+    mysql -uroot -e "SET NAMES utf8; SHOW $*"
+}
+alias SELECT="noglob SELECT"
+alias SHOW="noglob SHOW"
+
 # include
 [ -f $HOME/dotfiles/zsh/.http_status ] && source $HOME/dotfiles/zsh/.http_status
 
