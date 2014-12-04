@@ -274,6 +274,7 @@ alias topc='top -ocpu -n10 -s5'
 alias topm='top -omem -n10 -s5'
 
 alias memo='vim ~/memo'
+alias dated='date +%Y%m%d'
 alias datet='date +%Y%m%d%H%M'
 alias date-='date +%Y-%m-%d'
 
