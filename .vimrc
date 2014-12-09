@@ -328,6 +328,16 @@ inoremap ,done done: <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
 inoremap #!ruby #!/usr/bin/env ruby
 inoremap #!sh #!/bin/sh
 
+" 一般的な正規表現に近づける。
+nmap / /\v
+" 置換条件を省略すると最後に検索した検索条件を利用します。
+" 複雑な正規表現等で置換を行う際は / による検索で、
+" ハイライトされる範囲が正しい事を確認してから、
+" 以下のようにすることで直前に引っ掛けた箇所をそのまま置換することができます。
+" /FooBarBaz          " FooBarBazを検索
+" :%s//HogeFugaPiyo/g " FooBarBaz -> HogeFugaPiyoに置換される。
+
+
 " Abbreviations
 " http://vim-jp.org/vimdoc-ja/map.html#abbreviations
 " ab コマンドラインモードと挿入モードの短縮入力の設定
