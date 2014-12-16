@@ -278,6 +278,9 @@ alias dated='date +%Y%m%d'
 alias datet='date +%Y%m%d%H%M'
 alias date-='date +%Y-%m-%d'
 
+# インストールしたCpanモジュールを出力
+alias perl-installed="find `perl -e 'print \"@INC\"'` -name \"*.pm\" -print"
+
 # compdef
 compdef mosh=ssh
 
