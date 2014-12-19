@@ -262,6 +262,8 @@ alias gcb='git checkout -b'
 alias gd='git diff'
 alias gdc='git diff --cached'
 
+alias less='less --no-init --quit-if-one-screen'
+
 # いらなそう。そのうちけすよてい
 # alias gl='git log'
 
