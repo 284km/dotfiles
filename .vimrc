@@ -36,6 +36,7 @@ else
   imap <C-k>     <Plug>(neosnippet_expand_or_jump)
   smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 
+  NeoBundle 'mattn/webapi-vim'
   NeoBundle 'Shougo/unite.vim'
   " Bundle 'unite.vim'
 
@@ -133,6 +134,17 @@ else
   " " NeoBundle 'h1mesuke/unite-outline' 上でもういれてる
   " " NeoBundle 'Shougo/unite.vim' 上でもういれてる
   " NeoBundle 'basyura/bitly.vim'
+
+  " hatena blog
+  " :HatebloCreate
+  " :HatebloCreateDraft
+  " :HatebloList
+  " :HatebloUpdate [new_entry_title]
+  " :HatebloDelete
+  NeoBundle 'moznion/hateblo.vim'
+  " NeoBundle 'moznion/hateblo.vim', {
+  "         \ 'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
+  " \ }
 
   call neobundle#end()
 endif
