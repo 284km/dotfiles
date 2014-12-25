@@ -64,8 +64,8 @@ link ".bashrc", "~/.bashrc"
 # link ".screen", "~/.screen"
 
 link ".tmux.conf", "~/.tmux.conf"
-
 link ".siegerc", "~/.siegerc"
+link ".rubocop.yml", "~/.rubocop.yml"
 
 # link ".bvirc", "~/.bvirc"
 # link ".rascutrc", "~/.rascutrc"
