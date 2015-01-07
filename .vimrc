@@ -135,6 +135,9 @@ else
   " " NeoBundle 'Shougo/unite.vim' 上でもういれてる
   " NeoBundle 'basyura/bitly.vim'
 
+  " gist
+  NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+
   " hatena blog
   " :HatebloCreate
   " :HatebloCreateDraft
