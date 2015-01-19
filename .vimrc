@@ -41,6 +41,13 @@ else
   " Bundle 'unite.vim'
 
   NeoBundle 'Shougo/vimfiler'
+  " N  新規ファイルを作成
+  " K  新規ディレクトリを作成
+  " D  ファイル削除
+  " yy 選択中のファイルのフルパスをコピー
+  " gs セーフモードのオン/オフの切り替え
+  " .  隠しファイルの表示/非表示の切り替え
+  " Ctrl+l 画面の再描画
   "vimデフォルトのエクスプローラをvimfilerで置き換える(e.g. :e .)
   let g:vimfiler_as_default_explorer = 1
   "セーフモードを無効にした状態で起動する
