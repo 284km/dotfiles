@@ -154,7 +154,7 @@ else
   " :EvervimOpenBrowser  ノートをブラウザで開く。
   " :EvervimSearchByQuery {query} 検索文字列を指定して、ヒットしたノートの一覧を表示する。
   NeoBundle 'kakkyz81/evervim'
-  let g:evervim_devtoken=''
+  let g:evervim_devtoken=$EVERVIM_DEVTOKEN
 
   " hatena blog
   " :HatebloCreate
