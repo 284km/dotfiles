@@ -52,7 +52,17 @@
   s   = status
   sb  = status -bs
   ss  = status -s
-#   sh  = show
+  sh  = show
+  sh1 = show HEAD^
+  sh2 = show HEAD^^
+  sh3 = show HEAD^^^
+  sh4 = show HEAD^^^^
+  sh5 = show HEAD^^^^^
+  sh6 = show HEAD^^^^^^
+  sh7 = show HEAD^^^^^^^
+  sh8 = show HEAD^^^^^^^^
+  sh9 = show HEAD^^^^^^^^^
+
   so  = remote show origin
 #   # pull/push/fetch
 #   ft  = fetch
