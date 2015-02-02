@@ -252,7 +252,7 @@ alias mv='mv -i'
 alias :q=exit
 alias pp=popd
 alias p='pwd'
-alias bi='bundle install --path vendor/bundle --without production'
+alias bi='bundle install --path vendor/bundle --without production --jobs=4'
 alias be='bundle exec'
 alias rmigc='bundle exec rake db:migrate db:test:clone'
 alias g='git'
