@@ -730,15 +730,22 @@ match ZenkakuSpace /\s\+$\|　\|\t/
 
 if has('win32')
 elseif has('mac')
+
+  " カーソル行をハイライト
+  set cursorline
+  " autocmd InsertLeave * setlocal nocursorline
+  " autocmd InsertEnter * setlocal cursorline
+
 elseif has('unix')
   set cursorline " カーソル行をハイライト
   " カレントウィンドウにのみ罫線を引く
-"  augroup cch
-"    autocmd! cch
-"    autocmd WinLeave * set nocursorline
-"    autocmd WinEnter,BufRead * set cursorline
-"  augroup END
  
+  augroup cch
+    autocmd! cch
+    autocmd WinLeave * set nocursorline
+    autocmd WinEnter,BufRead * set cursorline
+  augroup END
+
   hi clear CursorLine
   hi CursorLine gui=underline
   " highlight CursorLine ctermbg=0 ctermfg=White guibg=darkblue
