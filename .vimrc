@@ -79,6 +79,7 @@ else
   " syntax
   NeoBundle "slim-template/vim-slim"
   NeoBundle "kchmck/vim-coffee-script"
+  " NeoBundle 'tacahilo/itamae-snippets'
 
   NeoBundle 'bling/vim-airline'
   let g:airline#extensions#tabline#enabled = 1
