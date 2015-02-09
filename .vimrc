@@ -1,4 +1,11 @@
-set nocompatible
+if has('vim_starting')
+  set nocompatible
+  if !has("win32")
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+  endif
+endif
+
+" set nocompatible
 filetype off
 filetype indent off
 filetype plugin off
@@ -10,7 +17,6 @@ else
   " call vundle#rc()
 
   " git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
   call neobundle#begin(expand('~/.vim/bundle/'))
   " call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
@@ -23,8 +29,20 @@ else
   " :BundleInstall!
   " :NeoBundleInstall!
   " Bundle 'rails.vim'
-  NeoBundle 'altercation/vim-colors-solarized'
   " Bundle 'tpope/vim-rails'
+  " NeoBundle 'vim-ruby/vim-ruby'
+  " NeoBundle 'tpope/vim-cucumber'
+
+" colorschemes
+  NeoBundle 'altercation/vim-colors-solarized'
+  " NeoBundle 'jpo/vim-railscasts-theme'
+  " NeoBundle 'baskerville/bubblegum'
+  " NeoBundle 'nanotech/jellybeans.vim'
+  " NeoBundle 'w0ng/vim-hybrid'
+  " NeoBundle 'vim-scripts/twilight'
+  " NeoBundle 'jonathanfilip/vim-lucius'
+  " NeoBundle '29decibel/codeschool-vim-theme'
+
 
   " NeoBundle 'Shougo/neocomplcache'
   NeoBundle 'Shougo/neocomplete'
@@ -55,8 +73,6 @@ else
   " :VimFiler -split -simple -winwidth=35 -no-quit コマンドで、IDEのファイルエクスプローラのような見た目になります。長いので.vimrcでマップして呼び出しましょう。
   "  => :Vimfiler -explorer で事足りてるからいいか。
 
-  " Bundle 'git://github.com/vim-ruby/vim-ruby.git'
-
   " 関数などのアウトラインをいい感じに見られる
   " :Unite outline
   " NeoBundle 'h1mesuke/unite-outline'
@@ -71,22 +87,31 @@ else
   " let g:syntastic_auto_loc_list=1
 "  let g:syntastic_check_on_open=1
   " let g:syntastic_auto_loc_list=2
-  let g:syntastic_ruby_checkers = ['rubocop']
-  let g:syntastic_javascript_checker = 'jshint'
+
+  if executable('rubocop')
+    let g:syntastic_ruby_checkers = ['rubocop']
+  endif
+  if executable('jshint')
+    let g:syntastic_javascript_checker = 'jshint'
+  endif
   " let g:syntastic_disabled_filetypes=['html']
 
 
   " syntax
   NeoBundle "slim-template/vim-slim"
+  " NeoBundle 'tpope/vim-haml'
+  " NeoBundle 'nono/vim-handlebars'
+  " NeoBundle 'juvenn/mustache.vim'
   NeoBundle "kchmck/vim-coffee-script"
   " NeoBundle 'tacahilo/itamae-snippets'
+  " html タグへの展開は C-y,
+  NeoBundle 'mattn/emmet-vim'
 
   NeoBundle 'bling/vim-airline'
   let g:airline#extensions#tabline#enabled = 1
+  let g:airline_powerline_fonts = 1
+  let g:airline_theme = "wombat"
 
-
-  " html タグへの展開は C-y,
-  NeoBundle 'mattn/emmet-vim'
 
   " ruby
   NeoBundle 'vim-scripts/ruby-matchit'
@@ -99,13 +124,14 @@ else
   NeoBundle 'nathanaelkane/vim-indent-guides'
 
   NeoBundle 'tpope/vim-fugitive'
-  " Bundle 'scrooloose/nerdcommenter'
-  " Bundle 'tpope/vim-surround'
+" Bundle 'scrooloose/nerdcommenter'
   " Bundle 'thinca/vim-quickrun'
   " Bundle 'thinca/vim-ref'
   " Bundle 'kana/vim-fakeclip'
 
-
+  " e.g. viwS' cs'" ds"
+  NeoBundle 'tpope/vim-surround'
+  
   " ファイルを tree 表示する
   " :NERDTree
   " NeoBundle 'scrooloose/nerdtree'
@@ -176,6 +202,13 @@ endif
 
 "---------------------------------------------------------------------------
 
+" 256色モード
+if stridx($TERM, "256color") >= 0
+  set t_Co=256
+else
+  set t_Co=16
+endif
+
 if has('win32')
   colorscheme darkblue
   set guifont=MS_Gothic:h8:cSHIFTJIS
@@ -193,20 +226,20 @@ elseif has('mac')
   let g:solarized_contrast="high"
   let g:solarized_termtrans=1
   colorscheme solarized
-  set background=dark
 
-set clipboard=unnamed,autoselect
+  set clipboard=unnamed,autoselect
 
 elseif has('unix')
   " mac terminal, xubuntu
   " colorscheme slate
   colorscheme elflord
+  " colorscheme desert
   " colorscheme pablo
   let g:solarized_termcolors=256
   let g:solarized_contrast="high"
   let g:solarized_termtrans=1
   " colorscheme solarized
-  set background=dark
+  " colorscheme railscasts
 
   set clipboard=unnamedplus
 
@@ -243,6 +276,18 @@ inoremap <C-e> <End>
 inoremap <C-d> <Del>
 " inoremap <C-k> <C-o>D
 
+" from http://vim-users.jp/2011/04/hack214/ {{{
+vnoremap ( t(
+vnoremap ) t)
+vnoremap ] t]
+vnoremap [ t[
+onoremap ( t(
+onoremap ) t)
+onoremap ] t]
+onoremap [ t[
+" }}}
+
+
 " :au[tocmd] [group] {event} {pat} [nested] {cmd}
 " - [group]を指定していないautocmdをvimrc内に記述していると、vimrcを再読み込みするたびにそのautocmdが登録されてしまいます。 
 "   vimrcを読み込んだ回数だけautocmdが実行され段々Vimが重くなっていきます。
@@ -264,12 +309,15 @@ autocmd vimrc BufNewFile,BufRead *.pl nnoremap <C-x> :!perl %
 set directory=~/swp
 
 set nu
+set ruler
 "印刷時行番号も出力
 set printoptions=number:y
 set shiftround
 set autoindent
 "set noautoindent
 set backspace=indent,eol,start
+set autoread " 他でファイルが編集された時に自動再読み込み
+set background=dark
 
 "set encoding=japan
 "set fileencoding=euc-jp
@@ -278,12 +326,25 @@ set fileencoding=utf-8
 " set termencoding=utf-8
 " set fileencodings=euc-jp,iso-2022-jp
 
-set hidden
-set history=50
+" search
+set incsearch
 set hlsearch
 set ignorecase
-set incsearch
-set laststatus=2
+set smartcase " ignorecase を有効にしている場合に大文字が入ると ignorecase が無効になる
+set wrapscan " 最後尾まで検索を終えたら次の検索で先頭に移る
+" nohlsearch "reset highlight
+
+set hidden " 保存されていないファイルがあるときでも別のファイルを開くことが出来る
+" set gdefault   " 置換の時 g オプションをデフォルトで有効にする
+
+set history=50
+
+" status line
+set laststatus=2 " ステータス行を常に表示
+" airline に置き換えられた
+" set statusline=%<%f\ %m%r%h%w%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %8P
+" git の branch 表示する設定
+" set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'.fugitive#statusline()}%=%-14.(%l,%c%V%)\ %8P
 
 set noswapfile
 set nobackup
@@ -292,25 +353,20 @@ set nobackup
 " let &directory = &backupdir
 
 " Undo履歴をファイルに保存する
-" set undodir=$HOME/.vim/undodir
+" set undodir=$HOME/.vim/undo
 " set undofile
 set noundofile
-
-" 自動再読み込み
-set autoread
-
-set ruler
 
 " set wrap
 set nowrap
 set ic
 " set noic
 
-" tab じゃない space
-set expandtab
-
-set tabstop=2
-set shiftwidth=2
+set expandtab " tab じゃなくて space
+set smarttab
+set tabstop=2     " ファイル中の<Tab>文字(キャラクターコード9)を、画面上の見た目で何文字分に展開するかを指定する。既にあるファイルをどのように表示するのか指定したい時に便利。
+set shiftwidth=2  " vimが挿入するインデント('cindent')やシフトオペレータ(>>や<<)で挿入/削除されるインデントの幅を、画面上の見た目で何文字分であるか指定します。自動的に挿入される量、と覚えておくと良いです。
+set softtabstop=0 " キーボードで<Tab>キーを押した時に挿入される空白の量。'softtabstop'が0以外の時には、例え'ts'を4に設定していても、<Tab>を1度押しても'softtabstop'分だけ空白が挿入されます。逆に'softtabstop'が0の場合には挿入されるのは'ts'で指定した量になります。
 " autocmd FileType perl set tabstop=2
 " autocmd FileType perl set shiftwidth=2
 " autocmd FileType ruby set tabstop=2
@@ -321,27 +377,15 @@ set shiftwidth=2
 " autocmd FileType javascript set shiftwidth=2
 
 
-
 "text witdh
 set tw=0
 
-" 入力中のコマンドを表示
-set showcmd
+set showmatch " 対応する括弧の表示
 
-" 対応する括弧の表示
-set showmatch
-
-" 補完候補を表示する
-set wildmenu
+set showcmd " 入力中のコマンドを表示
+set wildmenu " 補完候補を表示する
 
 
-set smartcase
-set wrapscan
-
-" airline に置き換えられた
-" set statusline=%<%f\ %m%r%h%w%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %8P
-" git の branch 表示する設定
-" set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'.fugitive#statusline()}%=%-14.(%l,%c%V%)\ %8P
 
 "autocmd CursorHold * update
 set updatetime=500
@@ -370,6 +414,15 @@ nmap / /\v
 " 以下のようにすることで直前に引っ掛けた箇所をそのまま置換することができます。
 " /FooBarBaz          " FooBarBazを検索
 " :%s//HogeFugaPiyo/g " FooBarBaz -> HogeFugaPiyoに置換される。
+
+" バッファ一覧
+nmap ,b :buffers<CR>
+
+nnoremap [unite]    <Nop>
+nmap     ,u [unite]
+nnoremap <silent> [unite]c   :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]b   :<C-u>Unite -buffer-name=buffers -start-insert -prompt=Buffer>\  buffer<CR>
+
 
 
 " Abbreviations
@@ -428,21 +481,21 @@ elseif has('unix')
   " カーソル行をハイライト
   set cursorline
   " カレントウィンドウにのみ罫線を引く
-  augroup cch
-    autocmd! cch
-    autocmd WinLeave * set nocursorline
-    autocmd WinEnter,BufRead * set cursorline
-  augroup END
+"  augroup cch
+"    autocmd! cch
+"    autocmd WinLeave * set nocursorline
+"    autocmd WinEnter,BufRead * set cursorline
+"  augroup END
  
   hi clear CursorLine
-    hi CursorLine gui=underline
-    " highlight CursorLine ctermbg=darkblue guibg=darkblue
-    " highlight CursorLine ctermbg=0 ctermfg=White guibg=darkblue
-    " highlight CursorLine ctermbg=#222222 guibg=darkblue
-    highlight CursorLine ctermbg=8 guibg=darkblue
-    highlight Search ctermbg=3
-    highlight Visual ctermbg=2
-    hi LineNr term=bold ctermfg=239 ctermbg=none gui=bold guifg=Black
+  hi CursorLine gui=underline
+  " highlight CursorLine ctermbg=0 ctermfg=White guibg=darkblue
+  " highlight CursorLine ctermbg=#222222 guibg=darkblue
+"  highlight CursorLine ctermbg=8 guibg=darkblue
+  highlight CursorLine ctermbg=8
+  highlight Search ctermbg=3
+  highlight Visual ctermbg=2
+  hi LineNr term=bold ctermfg=239 ctermbg=none gui=bold guifg=Black
 
 else
 endif
@@ -455,12 +508,10 @@ set completeopt=menu,preview
 "===================================================================
 " vim-indent-guides
 "===================================================================
-" vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
-let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_enable_on_vim_startup=1 " 自動的にvim-indent-guidesをオンにする
 " " 1インデント目からガイドする
 " let g:indent_guides_start_level=1
-" " 自動カラーを無効にする
-let g:indent_guides_auto_colors=0
+let g:indent_guides_auto_colors=0 " 自動カラーを無効にする
 
 " 奇数インデントのガイドカラー
 " hi IndentGuidesOdd  ctermbg=yellow
@@ -474,12 +525,15 @@ hi IndentGuidesOdd  ctermbg=magenta
 hi IndentGuidesEven ctermbg=white
 
 " ハイライト色の変化の幅 (Terminal では未サポート)
-"let g:indent_guides_color_change_percent = 20
-" ガイドの幅
-let g:indent_guides_guide_size = 1
+" let g:indent_guides_color_change_percent = 20
+let g:indent_guides_guide_size = 1 " ガイドの幅
 " ガイド幅をインデント幅に合わせる
 "let g:indent_guides_guide_size = &tabstop
 
+" ポップアップメニューのカラーを設定
+autocmd Syntax * hi Pmenu ctermfg=15 ctermbg=18 guibg=#666666
+autocmd Syntax * hi PmenuSel ctermbg=39 ctermfg=0 guibg=#8cd0d3 guifg=#666666
+autocmd Syntax * hi PmenuSbar guibg=#333333
 
 
 
