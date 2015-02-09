@@ -33,6 +33,16 @@ else
   " NeoBundle 'vim-ruby/vim-ruby'
   " NeoBundle 'tpope/vim-cucumber'
 
+  NeoBundle 'Shougo/vimproc.vim', {
+        \ 'build' : {
+        \     'windows' : 'tools\\update-dll-mingw',
+        \     'cygwin' : 'make -f make_cygwin.mak',
+        \     'mac' : 'make -f make_mac.mak',
+        \     'linux' : 'make',
+        \     'unix' : 'gmake',
+        \    },
+        \ }
+
 " colorschemes
   NeoBundle 'altercation/vim-colors-solarized'
   " NeoBundle 'jpo/vim-railscasts-theme'
