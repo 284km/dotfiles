@@ -20,7 +20,6 @@ else
   call neobundle#begin(expand('~/.vim/bundle/'))
   " call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
-  " NeoBundle 'tpope/vim-fugitive'
   " NeoBundle 'kien/ctrlp.vim'
   " NeoBundle 'flazz/vim-colorschemes'
   " You can specify revision/branch/tag.
@@ -89,6 +88,15 @@ else
   " NeoBundle 'Shougo/unite-outline'
   NeoBundle 'totem3/unite-outline'
 
+  NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'airblade/vim-gitgutter'
+  " vim-gitgitter {{{
+  let g:gitgutter_sign_added = '✚'
+  let g:gitgutter_sign_modified = '➜'
+  let g:gitgutter_sign_removed = '✘'
+  let g:gitgutter_sign_modified_removed = '✔'
+  "}}}
+
   " syntax check
   " :SyntasticCheck, :Errors
   NeoBundle 'scrooloose/syntastic'
@@ -118,9 +126,16 @@ else
   NeoBundle 'mattn/emmet-vim'
 
   NeoBundle 'bling/vim-airline'
+  " vim-airline {{{
   let g:airline#extensions#tabline#enabled = 1
   let g:airline_powerline_fonts = 1
   let g:airline_theme = "wombat"
+  let g:airline#extensions#hunks#hunk_symbols = [
+        \ g:gitgutter_sign_added . ' ',
+        \ g:gitgutter_sign_modified . ' ',
+        \ g:gitgutter_sign_removed . ' '
+        \ ]
+  " }}}
 
 
   " ruby
@@ -133,7 +148,6 @@ else
   " indent を色付きに見やすくする
   NeoBundle 'nathanaelkane/vim-indent-guides'
 
-  NeoBundle 'tpope/vim-fugitive'
 " Bundle 'scrooloose/nerdcommenter'
   " Bundle 'thinca/vim-quickrun'
   " Bundle 'thinca/vim-ref'
@@ -260,6 +274,12 @@ elseif has('unix')
 else
   " ubuntu
   colorscheme slate
+endif
+
+" 80桁を意識させる線が現れる。少し邪魔。
+if (exists('+colorcolumn'))
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=9
 endif
 
 "カーソルを表示行で移動する。物理行移動は<C-n>,<C-p>
@@ -528,8 +548,7 @@ match ZenkakuSpace /\s\+$\|　\|\t/
 if has('win32')
 elseif has('mac')
 elseif has('unix')
-  " カーソル行をハイライト
-  set cursorline
+  set cursorline " カーソル行をハイライト
   " カレントウィンドウにのみ罫線を引く
 "  augroup cch
 "    autocmd! cch
@@ -584,7 +603,6 @@ let g:indent_guides_guide_size = 1 " ガイドの幅
 autocmd Syntax * hi Pmenu ctermfg=15 ctermbg=18 guibg=#666666
 autocmd Syntax * hi PmenuSel ctermbg=39 ctermfg=0 guibg=#8cd0d3 guifg=#666666
 autocmd Syntax * hi PmenuSbar guibg=#333333
-
 
 
 filetype plugin indent on
