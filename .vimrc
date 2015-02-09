@@ -255,6 +255,8 @@ endif
 "カーソルを表示行で移動する。物理行移動は<C-n>,<C-p>
 nnoremap j gj
 nnoremap k gk
+noremap [space]h  ^
+noremap [space]l  $
 
 " vimgrep の検索結果など、Quickfix 操作用
 " :cw[indow] で window open
@@ -420,6 +422,16 @@ nmap / /\v
 nmap ,b :buffers<CR>
 nnoremap [space]n :<C-U>bnext<CR>
 nnoremap [space]p :<C-U>bprevious<CR>
+nnoremap <Leader>1   :e #1<CR>
+nnoremap <Leader>2   :e #2<CR>
+nnoremap <Leader>3   :e #3<CR>
+nnoremap <Leader>4   :e #4<CR>
+nnoremap <Leader>5   :e #5<CR>
+nnoremap <Leader>6   :e #6<CR>
+nnoremap <Leader>7   :e #7<CR>
+nnoremap <Leader>8   :e #8<CR>
+nnoremap <Leader>9   :e #9<CR>
+
 
 " Space prefix
 nnoremap [space] <Nop>
@@ -443,6 +455,8 @@ endif
 nmap <expr> [space]rv ReloadVimrc()
 "}}}
 
+nnoremap <silent> ,vf :<C-U>VimFiler<CR>
+nnoremap <silent> [space]vf :<C-U>VimFiler<CR>
 nnoremap [unite]    <Nop>
 " nmap     ,u [unite]
 nmap     [space]u [unite]
