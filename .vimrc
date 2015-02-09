@@ -332,7 +332,8 @@ set hlsearch
 set ignorecase
 set smartcase " ignorecase を有効にしている場合に大文字が入ると ignorecase が無効になる
 set wrapscan " 最後尾まで検索を終えたら次の検索で先頭に移る
-" nohlsearch "reset highlight
+nohlsearch "reset highlight
+nnoremap <silent> [space]/ :noh<CR>
 
 set hidden " 保存されていないファイルがあるときでも別のファイルを開くことが出来る
 " set gdefault   " 置換の時 g オプションをデフォルトで有効にする
@@ -417,9 +418,34 @@ nmap / /\v
 
 " バッファ一覧
 nmap ,b :buffers<CR>
+nnoremap [space]n :<C-U>bnext<CR>
+nnoremap [space]p :<C-U>bprevious<CR>
+
+" Space prefix
+nnoremap [space] <Nop>
+nmap     <Space> [space]
+xmap     <Space> [space]
+
+" Edit vimrc
+nnoremap [space]v :<C-U>edit $MYVIMRC<CR>
+
+" Reload vimrc"{{{
+if has('vim_starting')
+  function! ReloadVimrc()
+    source $MYVIMRC
+    if has('gui_running')
+      source $MYGVIMRC
+    endif
+
+  echom "Reload vimrc"
+  endfunction
+endif
+nmap <expr> [space]rv ReloadVimrc()
+"}}}
 
 nnoremap [unite]    <Nop>
-nmap     ,u [unite]
+" nmap     ,u [unite]
+nmap     [space]u [unite]
 nnoremap <silent> [unite]c   :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]b   :<C-u>Unite -buffer-name=buffers -start-insert -prompt=Buffer>\  buffer<CR>
 
