@@ -10,6 +10,7 @@ filetype off
 filetype indent off
 filetype plugin off
 
+
 if has('win32')
 else
   " git clone http://github.com/gmarik/vundle.git ~/.vim/vundle.git
@@ -27,10 +28,6 @@ else
 
   " :BundleInstall!
   " :NeoBundleInstall!
-  " Bundle 'rails.vim'
-  " Bundle 'tpope/vim-rails'
-  " NeoBundle 'vim-ruby/vim-ruby'
-  " NeoBundle 'tpope/vim-cucumber'
 
   NeoBundle 'Shougo/vimproc.vim', {
         \ 'build' : {
@@ -41,6 +38,152 @@ else
         \     'unix' : 'gmake',
         \    },
         \ }
+
+  " Bundle 'rails.vim'
+  " Bundle 'tpope/vim-rails'
+  " NeoBundle 'vim-ruby/vim-ruby'
+  " NeoBundle 'tpope/vim-cucumber'
+  NeoBundle 'thinca/vim-quickrun', {'depends' : 'Shougo/vimproc'}
+  if has('mac')
+    NeoBundle 'rhysd/quickrun-mac_notifier-outputter', {'depends' : 'thinca/vim-quickrun'}
+  endif
+  NeoBundle 'osyo-manga/shabadou.vim'
+  NeoBundle 'joker1007/quickrun-rspec-notifier'
+  NeoBundle 'osyo-manga/unite-quickrun_config'
+
+  " quickrun{{{
+  " エスケープカラーを表示する。
+  " MyAutocmd FileType quickrun AnsiEsc
+  nnoremap ,a :<C-U>AnsiEsc<CR>
+  " ヤンクを取りやすいようにconcealcursorを無効にする。
+  autocmd FileType quickrun setlocal concealcursor=""
+"  call quickrun#module#register(shabadou#make_quickrun_hook_anim(
+"        \"now_running",
+"        \['||| Now Running |||', '/// Now Running ///', '--- Now Running ---', '\\\ Now Running \\\', '||| Now Running |||', '/// Now Running ///', '--- Now Running ---', '\\\ Now Running \\\', ],
+"        \2,
+"        \), 1)
+  let s:ansiesc_hook = {
+        \ 'kind' : 'hook',
+        \ 'name' : 'ansiesc',
+        \ 'config' : {},
+        \ }
+  function! s:ansiesc_hook.on_exit(session, context)
+    let l:winnr = winnr("$")
+    execute l:winnr 'wincmd w'
+    let ft = &filetype
+    if ft == 'quickrun'
+      AnsiEsc
+    endif
+  endfunction
+"  call quickrun#module#register(s:ansiesc_hook, 1)
+
+  vnoremap <leader>q :QuickRun >>buffer -mode v<CR>
+
+  let g:quickrun_config = {}
+  let g:quickrun_config._ = {
+        \'runner' : 'vimproc',
+        \'outputter/buffer/split' : ':botright 10sp',
+        \'outputter/error': 'buffer',
+        \'runner/vimproc/updatetime' : 40,
+        \'hook/now_running/enable' : 1,
+        \'hook/time/enable' : 1,
+        \}
+  let s:rspec_quickrun_config = {
+        \ 'command': 'rspec',
+        \ 'outputter': 'multi:error:rspec_notifier',
+        \ 'outputter/buffer/split': ':botright 8sp',
+        \ 'hook/close_buffer/enable_success' : 1,
+        \}
+  let g:quickrun_config['rspec/bundle'] =
+        \ extend(copy(s:rspec_quickrun_config), {
+        \ 'type': 'rspec/bundle',
+        \ 'exec': 'bundle exec %c %o --color --tty %s%a'
+        \})
+  let g:quickrun_config['rspec/normal'] =
+        \ extend(copy(s:rspec_quickrun_config), {
+        \ 'type': 'rspec/normal',
+        \ 'exec': '%c %o --color --tty %s%a'
+        \})
+  let g:quickrun_config['rspec/spring'] =
+        \ extend(copy(s:rspec_quickrun_config), {
+        \ 'type': 'rspec/spring',
+        \ 'exec': 'spring rspec %o --color --tty %s%a'
+        \})
+  let s:cucumber_quickrun_config = {
+        \ 'command': 'cucumber',
+        \ 'outputter': 'buffer',
+        \ 'outputter/buffer/split': ':botright 8sp',
+        \}
+  let g:quickrun_config['cucumber/bundle'] =
+        \ extend(copy(s:cucumber_quickrun_config), {
+        \ 'type': 'cucumber/bundle',
+        \ 'exec': 'bundle exec %c %o --color %s'
+        \})
+  let g:quickrun_config['cucumber/spring'] =
+        \ extend(copy(s:cucumber_quickrun_config), {
+        \ 'type': 'cucumber/spring',
+        \ 'exec': 'spring cucumber %o --color %s'
+        \})
+  let g:quickrun_config['markdown'] = {
+        \ 'type': 'markdown/gfm',
+        \ 'outputter': 'browser'
+        \}
+
+  function! s:RSpecQuickrun()
+    if exists('g:use_spring_rspec') && g:use_spring_rspec == 1
+      let b:quickrun_config = {'type' : 'rspec/spring'}
+    elseif exists('g:use_zeus_rspec') && g:use_zeus_rspec == 1
+      let b:quickrun_config = {'type' : 'rspec/zeus'}
+    else
+      let b:quickrun_config = {'type' : 'rspec/bundle'}
+    endif
+    nnoremap <expr><silent> <Leader>lr "<Esc>:QuickRun -args :" . line(".") . "<CR>"
+  endfunction
+  autocmd BufReadPost *_spec.rb call s:RSpecQuickrun()
+
+  function! s:CucumberQuickrun()
+    if exists('g:use_spring_cucumber') && g:use_spring_cucumber == 1
+      let b:quickrun_config = {'type' : 'cucumber/spring'}
+    elseif exists('g:use_zeus_cucumber') && g:use_zeus_cucumber == 1
+      let b:quickrun_config = {'type' : 'cucumber/zeus'}
+    else
+      let b:quickrun_config = {'type' : 'cucumber/bundle'}
+    endif
+    nnoremap <expr><silent> <Leader>lr "<Esc>:QuickRun -cmdopt \"-l " . line(".") . "\"<CR>"
+  endfunction
+  autocmd BufReadPost *.feature call s:CucumberQuickrun()
+
+  function! s:SetUseSpring()
+    let g:use_spring_rspec = 1
+    let g:use_zeus_rspec = 0
+    let g:use_spring_cucumber = 1
+    let g:use_zeus_cucumber = 0
+  endfunction
+
+  function! s:SetUseZeus()
+    let g:use_zeus_rspec = 1
+    let g:use_spring_rspec = 0
+    let g:use_zeus_cucumber = 1
+    let g:use_spring_cucumber = 0
+  endfunction
+
+  function! s:SetUseBundle()
+    let g:use_zeus_rspec = 0
+    let g:use_spring_rspec = 0
+    let g:use_zeus_cucumber = 0
+    let g:use_spring_cucumber = 0
+  endfunction
+
+  command! -nargs=0 UseSpringRSpec let b:quickrun_config = {'type' : 'rspec/spring'} | call s:SetUseSpring()
+  command! -nargs=0 UseZeusRSpec   let b:quickrun_config = {'type' : 'rspec/zeus'}   | call s:SetUseZeus()
+  command! -nargs=0 UseBundleRSpec let b:quickrun_config = {'type' : 'rspec/bundle'} | call s:SetUseBundle()
+  command! -nargs=0 UseSpringCucumber let b:quickrun_config = {'type' : 'cucumber/spring'} | call s:SetUseSpring()
+  command! -nargs=0 UseZeusCucumber   let b:quickrun_config = {'type' : 'cucumber/zeus'}   | call s:SetUseZeus()
+  command! -nargs=0 UseBundleCucumber let b:quickrun_config = {'type' : 'cucumber/bundle'} | call s:SetUseBundle()
+  " }}}
+
+
+
 
 " colorschemes
   NeoBundle 'altercation/vim-colors-solarized'
@@ -188,7 +331,6 @@ else
   NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " Bundle 'scrooloose/nerdcommenter'
-  " Bundle 'thinca/vim-quickrun'
   " Bundle 'thinca/vim-ref'
   " Bundle 'kana/vim-fakeclip'
 
