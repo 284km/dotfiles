@@ -57,6 +57,7 @@ else
   nnoremap ,a :<C-U>AnsiEsc<CR>
   " ヤンクを取りやすいようにconcealcursorを無効にする。
   autocmd FileType quickrun setlocal concealcursor=""
+  " TODO: quickrun#module#register できてない
 "  call quickrun#module#register(shabadou#make_quickrun_hook_anim(
 "        \"now_running",
 "        \['||| Now Running |||', '/// Now Running ///', '--- Now Running ---', '\\\ Now Running \\\', '||| Now Running |||', '/// Now Running ///', '--- Now Running ---', '\\\ Now Running \\\', ],
@@ -75,6 +76,7 @@ else
       AnsiEsc
     endif
   endfunction
+  " TODO: quickrun#module#register できてない
 "  call quickrun#module#register(s:ansiesc_hook, 1)
 
   vnoremap <leader>q :QuickRun >>buffer -mode v<CR>
