@@ -89,6 +89,7 @@ else
   NeoBundle 'totem3/unite-outline'
 
   NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'gregsexton/gitv'
   NeoBundle 'airblade/vim-gitgutter'
   " vim-gitgitter {{{
   let g:gitgutter_sign_added = '✚'
