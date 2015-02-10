@@ -89,6 +89,44 @@ else
   NeoBundle 'totem3/unite-outline'
 
   NeoBundle 'tpope/vim-fugitive'
+  " ：Gstatus                新しい窓を作ってgit statusを表示
+    " ：Gstatus上の変更のあったファイルにカーソルを合わせた状態で
+    "   Dで:Gdiff起動(差分表示)
+    "   -でaddとresetの切り替え
+    "   pでパッチを表示
+    "   Enterでファイル表示
+    "   :Gstatusの画面上で
+    "   Cでcommit
+  " ：Gwrite                 現在開いているソースをgit add
+  " ：Gread                  現在開いているソースの直前のコミット時のソースを表示
+    " 現在開いているソースの直前のコミット時のソースを表示してくれる。表示されたファイルは上書きされているのではなく、バッファに展開されているだけなので、心配無用。
+    " revisionも指定できるので1つ前のコミット時の様子をみたければ:Gread HEAD^でいける。
+    " 現在との差分を表示したい場合は：Gdiffを使おう。
+  " ：Gmove destination/path 現在開いているソースをgit mvする
+  " ：Gremove                現在開いているソースをgit rmする
+  " ：Gcommit                git commit
+    " git-commitに-vオプションを付けたい場合はそのまま:Gcommit -vとすればいい。
+  " ：Gblame                 現在のソースをgit blame。vimが色づけしてくれる
+  " ：Gdiff                  現在のソースの変更点をvimdiffで表示
+  " Fugitive {{{
+  nnoremap [git] <Nop>
+  nmap [space]g [git]
+  nmap ,g [git]
+  nnoremap [git]d :<C-u>Gdiff HEAD<CR>
+  nnoremap [git]s :<C-u>Gstatus<CR>
+  nnoremap [git]l :<C-u>Glog<CR>
+  nnoremap [git]a :<C-u>Gwrite<CR>
+  nnoremap [git]c :<C-u>Gcommit<CR>
+  nnoremap [git]C :<C-u>Git commit --amend<CR>
+  nnoremap [git]b :<C-u>Gblame<CR>
+  nnoremap [git]n :<C-u>Git now<CR>
+  nnoremap [git]N :<C-u>Git now --all<CR>
+
+  " ftdetect is often failed
+  " MyAutocmd BufEnter * if expand("%") =~ ".git/COMMIT_EDITMSG" | set ft=gitcommit | endif
+  " MyAutocmd BufEnter * if expand("%") =~ ".git/rebase-merge" | set ft=gitrebase | endif
+" }}}
+
   NeoBundle 'gregsexton/gitv'
   NeoBundle 'airblade/vim-gitgutter'
   " vim-gitgitter {{{
