@@ -211,8 +211,8 @@ case ${OSTYPE} in
     export LSCOLORS=gxfxcxdxbxegedabagacad
     alias ls='ls -FG'
     export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-    alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-    alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+#    alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+#    alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
     alias mvim='open -a MacVim'
     alias chrome='open -a /Applications/Google\ Chrome.app'
     alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
@@ -256,6 +256,7 @@ alias gcb='git checkout -b'
 alias gd='git diff'
 alias gdc='git diff --cached'
 
+alias mkdir='mkdir -p'
 alias -g G=' | grep'
 alias less='less --no-init --quit-if-one-screen'
 alias -g L=' | less'
