@@ -36,3 +36,6 @@ doc/
 /vendor/bundle
 /config/secrets.yml
 
+# vagrant
+/.vagrant
+
