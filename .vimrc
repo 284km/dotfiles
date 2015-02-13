@@ -40,7 +40,7 @@ else
         \ }
 
   " Bundle 'rails.vim'
-  " Bundle 'tpope/vim-rails'
+  NeoBundle 'tpope/vim-rails'
   " NeoBundle 'vim-ruby/vim-ruby'
   " NeoBundle 'tpope/vim-cucumber'
   NeoBundle 'thinca/vim-quickrun', {'depends' : 'Shougo/vimproc'}
@@ -323,11 +323,11 @@ else
 
 
   " ruby
-  NeoBundle 'vim-scripts/ruby-matchit'
-  " Ruby の end を自動挿入してくれる
-  NeoBundle 'tpope/vim-endwise'
-  " control-- でコメントの on off
-  NeoBundle 'tomtom/tcomment_vim'
+  NeoBundle 'tpope/vim-endwise' " Ruby の end を自動挿入してくれる
+  NeoBundle 'tomtom/tcomment_vim' " control-- でコメントの on off
+  " NeoBundle 'vim-scripts/ruby-matchit'
+  " matchitスクリプトの読み込み
+  source $VIMRUNTIME/macros/matchit.vim
 
   " indent を色付きに見やすくする
   NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -338,7 +338,9 @@ else
 
   " e.g. viwS' cs'" ds"
   NeoBundle 'tpope/vim-surround'
-  
+
+  NeoBundle 'bronson/vim-toggle-wrap' " \w
+
   " ファイルを tree 表示する
   " :NERDTree
   " NeoBundle 'scrooloose/nerdtree'
