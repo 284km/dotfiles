@@ -256,6 +256,7 @@ alias gcb='git checkout -b'
 alias gd='git diff'
 alias gdc='git diff --cached'
 
+alias -g G=' | grep'
 alias less='less --no-init --quit-if-one-screen'
 alias -g L=' | less'
 
