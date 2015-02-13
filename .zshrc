@@ -186,20 +186,13 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
-# ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
-# setopt hist_ignore_all_dups
-# ヒストリを呼び出してから実行する間に一旦編集可能
-# setopt hist_verify
-# 余分な空白は詰めて記録
-# setopt hist_reduce_blanks
-# 古いコマンドと同じものは無視
-# setopt hist_save_no_dups
-# historyコマンドは履歴に登録しない
-# setopt hist_no_store
-# 補完時にヒストリを自動的に展開
-# setopt hist_expand
-# 履歴をインクリメンタルに追加
-# setopt inc_append_history
+# setopt hist_ignore_all_dups # ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
+# setopt hist_verify          # ヒストリを呼び出してから実行する間に一旦編集可能
+# setopt hist_reduce_blanks   # 余分な空白は詰めて記録
+# setopt hist_save_no_dups    # 古いコマンドと同じものは無視
+# setopt hist_no_store        # historyコマンドは履歴に登録しない
+# setopt hist_expand          # 補完時にヒストリを自動的に展開
+# setopt inc_append_history   # 履歴をインクリメンタルに追加
 # インクリメンタルからの検索
 # bindkey "^R" history-incremental-search-backward
 # bindkey "^S" history-incremental-search-forward
@@ -264,9 +257,7 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 
 alias less='less --no-init --quit-if-one-screen'
-
-# いらなそう。そのうちけすよてい
-# alias gl='git log'
+alias -g L=' | less'
 
 # alias glo='git log --oneline'
 alias glo='git log --decorate --pretty=oneline'
