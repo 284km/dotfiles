@@ -203,10 +203,24 @@ else
   let g:neocomplete#enable_at_startup = 1
 
   " neosnippet
-  NeoBundle 'Shougo/neosnippet.vim'
+  NeoBundle 'Shougo/neosnippet', {
+        \   'depends' : ["Shougo/neosnippet-snippets"]
+        \}
   NeoBundle 'Shougo/neosnippet-snippets'
   imap <C-k>     <Plug>(neosnippet_expand_or_jump)
   smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  " neosnippet {{{
+  if neobundle#tap('neosnippet')
+    let g:neosnippet#snippets_directory = [
+          \'~/.vim/snippets',
+          \'~/.vim/bundle/itamae-snippets',
+          \]
+    call neobundle#untap()
+  endif
+  nnoremap <silent> ,itamae :<C-U>set ft=ruby.itamae<CR>
+  " }}}
+
+
 
   NeoBundle 'mattn/webapi-vim'
   NeoBundle 'Shougo/unite.vim'
@@ -305,7 +319,7 @@ else
   " NeoBundle 'nono/vim-handlebars'
   " NeoBundle 'juvenn/mustache.vim'
   NeoBundle "kchmck/vim-coffee-script"
-  " NeoBundle 'tacahilo/itamae-snippets'
+  NeoBundle 'tacahilo/itamae-snippets' " :set ft=ruby.itamae
   " html タグへの展開は C-y,
   NeoBundle 'mattn/emmet-vim'
 
