@@ -56,8 +56,9 @@ link ".zshrc", "~/.zshrc"
 
 # link ".irssi/scripts", "~/.irssi/scripts"
 
-link ".bash_profile", "~/.bash_profile"
-link ".bashrc", "~/.bashrc"
+# これのせいで login loop に陥り2日悩んだ。このことは一生忘れない。
+# link ".bash_profile", "~/.bash_profile"
+# link ".bashrc", "~/.bashrc"
 
 # link ".screenrc", "~/.screenrc"
 # link ".tscreenrc", "~/.tscreenrc"
