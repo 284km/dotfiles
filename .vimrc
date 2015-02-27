@@ -320,8 +320,7 @@ else
   " NeoBundle 'juvenn/mustache.vim'
   NeoBundle "kchmck/vim-coffee-script"
   NeoBundle 'tacahilo/itamae-snippets' " :set ft=ruby.itamae
-  " html タグへの展開は C-y,
-  NeoBundle 'mattn/emmet-vim'
+  NeoBundle 'mattn/emmet-vim' " html タグへの展開は C-y,
 
   NeoBundle 'bling/vim-airline'
   " vim-airline {{{
@@ -343,9 +342,6 @@ else
   " matchitスクリプトの読み込み
   source $VIMRUNTIME/macros/matchit.vim
 
-  " indent を色付きに見やすくする
-  NeoBundle 'nathanaelkane/vim-indent-guides'
-
 " Bundle 'scrooloose/nerdcommenter'
   " Bundle 'thinca/vim-ref'
   " Bundle 'kana/vim-fakeclip'
@@ -353,7 +349,18 @@ else
   " e.g. viwS' cs'" ds"
   NeoBundle 'tpope/vim-surround'
 
+  NeoBundle 'nathanaelkane/vim-indent-guides' " indent を色付きに見やすくする
   NeoBundle 'bronson/vim-toggle-wrap' " \w
+  " NeoBundle 'godlygeek/tabular'
+
+  NeoBundle 'majutsushi/tagbar'
+  " TagBar
+  nnoremap <silent> ,t :TagbarToggle<CR>
+  let g:tagbar_left = 1
+  let g:tagbar_width = 30
+  let g:tagbar_updateonsave_maxlines = 10000
+  let g:tagbar_sort = 0
+
 
   " ファイルを tree 表示する
   " :NERDTree
