@@ -35,8 +35,9 @@ doc/
 # rails
 /vendor/bundle
 /config/secrets.yml
-.env
-.capistrano
+/.env
+/.envrc
+/.capistrano
 
 # vagrant
 /.vagrant
