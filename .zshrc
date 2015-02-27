@@ -428,6 +428,11 @@ function SHOW () {
 alias SELECT="noglob SELECT"
 alias SHOW="noglob SHOW"
 
+# direnv
+if type direnv > /dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
+
 # include
 [ -f $HOME/dotfiles/zsh/.http_status ] && source $HOME/dotfiles/zsh/.http_status
 
