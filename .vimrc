@@ -21,7 +21,10 @@ else
   call neobundle#begin(expand('~/.vim/bundle/'))
   " call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
-  " NeoBundle 'kien/ctrlp.vim'
+
+  " C-p 使ってるし C-j が my tmux prefix なので残念
+  " NeoBundle 'ctrlpvim/ctrlp.vim'
+
   " NeoBundle 'flazz/vim-colorschemes'
   " You can specify revision/branch/tag.
   " NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -224,7 +227,7 @@ else
 
   NeoBundle 'mattn/webapi-vim'
   NeoBundle 'Shougo/unite.vim'
-  " Bundle 'unite.vim'
+  NeoBundle 'Shougo/neomru.vim'
 
   NeoBundle 'Shougo/vimfiler'
   " N  新規ファイルを作成
@@ -234,10 +237,8 @@ else
   " gs セーフモードのオン/オフの切り替え
   " .  隠しファイルの表示/非表示の切り替え
   " Ctrl+l 画面の再描画
-  "vimデフォルトのエクスプローラをvimfilerで置き換える(e.g. :e .)
-  let g:vimfiler_as_default_explorer = 1
-  "セーフモードを無効にした状態で起動する
-  let g:vimfiler_safe_mode_by_default = 0
+  let g:vimfiler_as_default_explorer = 1  "vimデフォルトのエクスプローラをvimfilerで置き換える(e.g. :e .)
+  let g:vimfiler_safe_mode_by_default = 0 "セーフモードを無効にした状態で起動する
   " :VimFiler -split -simple -winwidth=35 -no-quit コマンドで、IDEのファイルエクスプローラのような見た目になります。長いので.vimrcでマップして呼び出しましょう。
   "  => :Vimfiler -explorer で事足りてるからいいか。
 
@@ -695,12 +696,15 @@ nmap <expr> [space]rv ReloadVimrc()
 "}}}
 
 nnoremap <silent> ,vf :<C-U>VimFiler<CR>
-nnoremap <silent> [space]vf :<C-U>VimFiler<CR>
+" nnoremap <silent> [space]vf :<C-U>VimFiler<CR>
 nnoremap [unite]    <Nop>
 " nmap     ,u [unite]
 nmap     [space]u [unite]
-nnoremap <silent> [unite]c   :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]b   :<C-u>Unite -buffer-name=buffers -start-insert -prompt=Buffer>\  buffer<CR>
+nnoremap <silent> [unite]c   :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]fa   :<C-u>Unite -buffer-name=files -start-insert file_rec/async<CR>
+nnoremap <silent> [unite]fg   :<C-u>Unite -buffer-name=files -start-insert file_rec/git<CR>
+nnoremap <silent> [unite]fr   :<C-u>Unite -buffer-name=files -start-insert file_mru<CR>
 
 
 
