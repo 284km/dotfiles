@@ -228,6 +228,7 @@ else
   NeoBundle 'mattn/webapi-vim'
   NeoBundle 'Shougo/unite.vim'
   NeoBundle 'Shougo/neomru.vim'
+  NeoBundle 'sorah/unite-ghq'
 
   NeoBundle 'Shougo/vimfiler'
   " N  新規ファイルを作成
@@ -702,10 +703,13 @@ nnoremap [unite]    <Nop>
 nmap     [space]u [unite]
 nnoremap <silent> [unite]b   :<C-u>Unite -buffer-name=buffers -start-insert -prompt=Buffer>\  buffer<CR>
 nnoremap <silent> [unite]c   :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
-nnoremap <silent> [unite]fa   :<C-u>Unite -buffer-name=files -start-insert file_rec/async<CR>
-nnoremap <silent> [unite]fg   :<C-u>Unite -buffer-name=files -start-insert file_rec/git<CR>
-nnoremap <silent> [unite]fr   :<C-u>Unite -buffer-name=files -start-insert file_mru<CR>
+nnoremap <silent> [unite]fa  :<C-u>Unite -buffer-name=files -start-insert file_rec/async<CR>
+nnoremap <silent> [unite]fg  :<C-u>Unite -buffer-name=files -start-insert file_rec/git<CR>
+nnoremap <silent> [unite]fr  :<C-u>Unite -buffer-name=files -start-insert file_mru<CR>
+nnoremap <silent> [unite]g   :<C-u>Unite -buffer-name=ghq -start-insert ghq<CR>
 
+" dot file も表示するように?
+call unite#custom#source('file_rec,file_rec/async', 'matcher', 'matcher_default')
 
 
 " Abbreviations
