@@ -239,7 +239,7 @@ else
   " .  隠しファイルの表示/非表示の切り替え
   " Ctrl+l 画面の再描画
   let g:vimfiler_as_default_explorer = 1  "vimデフォルトのエクスプローラをvimfilerで置き換える(e.g. :e .)
-  let g:vimfiler_safe_mode_by_default = 0 "セーフモードを無効にした状態で起動する
+  " let g:vimfiler_safe_mode_by_default = 0 "セーフモードを無効にした状態で起動する
   " :VimFiler -split -simple -winwidth=35 -no-quit コマンドで、IDEのファイルエクスプローラのような見た目になります。長いので.vimrcでマップして呼び出しましょう。
   "  => :Vimfiler -explorer で事足りてるからいいか。
 
@@ -699,7 +699,7 @@ nmap <expr> [space]rv ReloadVimrc()
 nnoremap <silent> ,vf :<C-U>VimFiler<CR>
 " nnoremap <silent> [space]vf :<C-U>VimFiler<CR>
 nnoremap [unite]    <Nop>
-" nmap     ,u [unite]
+nmap     ,u [unite]
 nmap     [space]u [unite]
 nnoremap <silent> [unite]b   :<C-u>Unite -buffer-name=buffers -start-insert -prompt=Buffer>\  buffer<CR>
 nnoremap <silent> [unite]c   :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
