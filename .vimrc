@@ -453,7 +453,6 @@ if has('win32')
 "    set ambiwidth=auto
 "  endif
 elseif has('mac')
-  " macvim
   " colorscheme darkblue
   let g:solarized_termcolors=256
   " exe "hi Comment" . s:fg_base01 .s:bg_base02 .s:fmt_none
@@ -465,7 +464,7 @@ elseif has('mac')
   set clipboard=unnamed,autoselect
 
 elseif has('unix')
-  " mac terminal, xubuntu
+  " xubuntu
   " colorscheme slate
   colorscheme elflord
   " colorscheme desert
@@ -478,7 +477,6 @@ elseif has('unix')
 
   set clipboard=unnamedplus
 
-  
 " elseif has('xfontset')
 "   " UNIX用 (xfontsetを使用)
 "   set guifontset=a10,r10,k10
@@ -798,13 +796,13 @@ endif
 " 補完内容が詳細に表示されるようになる
 set completeopt=menu,preview
 
-"===================================================================
-" vim-indent-guides
-"===================================================================
-let g:indent_guides_enable_on_vim_startup=1 " 自動的にvim-indent-guidesをオンにする
-" " 1インデント目からガイドする
-" let g:indent_guides_start_level=1
+" vim-indent-guides {{{
 let g:indent_guides_auto_colors=0 " 自動カラーを無効にする
+let g:indent_guides_color_change_percent = 35 " ハイライト色の変化の幅 (Terminal では未サポート?)
+let g:indent_guides_enable_on_vim_startup=1 " 自動的にvim-indent-guidesをオンにする
+let g:indent_guides_guide_size = 1 " ガイドの幅
+" let g:indent_guides_guide_size = &tabstop " ガイド幅をインデント幅に合わせる
+" let g:indent_guides_start_level=1 " 1インデント目からガイドする
 
 " 奇数インデントのガイドカラー
 " hi IndentGuidesOdd  ctermbg=yellow
@@ -813,15 +811,17 @@ let g:indent_guides_auto_colors=0 " 自動カラーを無効にする
 " hi IndentGuidesEven ctermbg=gray
 " hi IndentGuidesEven ctermbg=darkgray
 
-" on Xubuntu
-hi IndentGuidesOdd  ctermbg=magenta
-hi IndentGuidesEven ctermbg=white
+if has('mac')
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=DarkGrey   ctermbg=darkgrey
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=DarkCyan ctermbg=12
+elseif has('unix')
+  " on Xubuntu
+  hi IndentGuidesOdd  ctermbg=magenta
+  hi IndentGuidesEven ctermbg=white
+endif
 
-" ハイライト色の変化の幅 (Terminal では未サポート)
-" let g:indent_guides_color_change_percent = 20
-let g:indent_guides_guide_size = 1 " ガイドの幅
-" ガイド幅をインデント幅に合わせる
-"let g:indent_guides_guide_size = &tabstop
+
+" }}}
 
 " ポップアップメニューのカラーを設定
 autocmd Syntax * hi Pmenu ctermfg=15 ctermbg=18 guibg=#666666
