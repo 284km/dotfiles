@@ -466,13 +466,13 @@ elseif has('mac')
 elseif has('unix')
   " xubuntu
   " colorscheme slate
-  colorscheme elflord
   " colorscheme desert
   " colorscheme pablo
   let g:solarized_termcolors=256
   let g:solarized_contrast="high"
   let g:solarized_termtrans=1
-  " colorscheme solarized
+  " colorscheme elflord " when normal terminal
+  colorscheme solarized " when guake
   " colorscheme railscasts
 
   set clipboard=unnamedplus
@@ -484,6 +484,8 @@ else
   " ubuntu
   colorscheme slate
 endif
+
+set scrolloff=5 " 常にカーソル位置から5行余裕を取る
 
 " 80桁を意識させる線が現れる。少し邪魔。
 if (exists('+colorcolumn'))
