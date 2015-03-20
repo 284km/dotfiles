@@ -227,7 +227,8 @@ case ${OSTYPE} in
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
     alias tmcp='tmux save-buffer - | pbcopy'
-    alias P='p | pbcopy'
+    alias P='p | pbcopy && pwd'
+    alias CD='cd `pbpaste` && pwd'
     alias chrome='/usr/bin/google-chrome'
     ;;
 esac
@@ -245,6 +246,7 @@ alias mv='mv -i'
 alias :q=exit
 alias pp=popd
 alias p='pwd'
+alias v='vim'
 alias bi='bundle install --path vendor/bundle --without production --jobs=4'
 alias bibs='bundle install --path vendor/bundle --binstubs vendor/bin --without production --jobs=4'
 alias be='bundle exec'
