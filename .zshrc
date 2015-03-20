@@ -436,7 +436,10 @@ if type direnv > /dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
 
-# include
+if [ -f $HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source $HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
 [ -f $HOME/dotfiles/zsh/.http_status ] && source $HOME/dotfiles/zsh/.http_status
 
 # 個別設定を読み込む
