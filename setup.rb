@@ -64,9 +64,11 @@ link ".zshrc", "~/.zshrc"
 # link ".tscreenrc", "~/.tscreenrc"
 # link ".screen", "~/.screen"
 
-link ".tmux.conf", "~/.tmux.conf"
-link ".siegerc", "~/.siegerc"
+link ".gemrc", "~/.gemrc"
+link ".pryrc", "~/.pryrc"
 link ".rubocop.yml", "~/.rubocop.yml"
+link ".siegerc", "~/.siegerc"
+link ".tmux.conf", "~/.tmux.conf"
 
 # link ".bvirc", "~/.bvirc"
 # link ".rascutrc", "~/.rascutrc"
