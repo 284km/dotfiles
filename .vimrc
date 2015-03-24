@@ -497,6 +497,8 @@ endif
 nnoremap j gj
 nnoremap k gk
 noremap [space]h  ^
+noremap [space]j  G
+noremap [space]k  1G
 noremap [space]l  $
 
 " vimgrep の検索結果など、Quickfix 操作用
