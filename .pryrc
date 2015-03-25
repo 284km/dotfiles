@@ -12,7 +12,15 @@ begin
   require "awesome_print"
 
   def pbcopy(str, opts = {})
-    IO.popen('pbcopy', 'r+') { |io| io.print str }
+    IO.popen(clipboard, 'r+') { |io| io.print str }
+  end
+
+  def clipboard
+    if RUBY_PLATFORM.match(/darwin/)
+      "pbcopy"
+    else
+      "xsel --clipboard --input"
+    end
   end
 
   Pry.config.commands.command "copy", "Copy last evaluated object to clipboard" do
