@@ -263,6 +263,7 @@ alias mkdir='mkdir -p'
 alias -g G=' | grep'
 alias less='less --no-init --quit-if-one-screen'
 alias -g L=' | less'
+alias -g C=' | pbcopy'
 
 # alias glo='git log --oneline'
 alias glo='git log --decorate --pretty=oneline'
