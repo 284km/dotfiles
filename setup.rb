@@ -79,6 +79,7 @@ link ".tmux.conf", "~/.tmux.conf"
 
 link "git/.gitconfig", "~/.gitconfig"
 link "git/.gitignore", "~/.gitignore"
+link ".bundle", "~/.bundle"
 
 # cp ".gemrc", "~/.gemrc".expand unless Pathname.new("~/.gemrc").expand_path.exist?
 
