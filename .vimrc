@@ -706,6 +706,7 @@ nmap     [space]u [unite]
 nnoremap <silent> [unite]b   :<C-u>Unite -buffer-name=buffers -start-insert -prompt=Buffer>\  buffer<CR>
 nnoremap <silent> [unite]c   :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]fa  :<C-u>Unite -buffer-name=files -start-insert file_rec/async<CR>
+nnoremap <silent> [unite]fd  :<C-u>Unite -buffer-name=files -start-insert file_rec/async:!<CR>
 nnoremap <silent> [unite]fg  :<C-u>Unite -buffer-name=files -start-insert file_rec/git<CR>
 nnoremap <silent> [unite]fr  :<C-u>Unite -buffer-name=files -start-insert file_mru<CR>
 nnoremap <silent> [unite]g   :<C-u>Unite -buffer-name=ghq -start-insert ghq<CR>
