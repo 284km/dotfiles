@@ -442,6 +442,8 @@ if [ -f $HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]
   source $HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+[ -f $HOME/dotfiles/zsh/.bitbucket ] && source $HOME/dotfiles/zsh/.bitbucket
+
 [ -f $HOME/dotfiles/zsh/.http_status ] && source $HOME/dotfiles/zsh/.http_status
 
 # 個別設定を読み込む

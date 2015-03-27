@@ -1,0 +1,12 @@
+
+# Using with password e.g.
+# curl -v -X POST -u 284km:PASSWORD -H "Content-type: application/json" https://api.bitbucket.org/2.0/repositories/284km/$1 -d '{"scm":"git", "is_private":true, "fork_policy":"no_forks" }'
+
+function bbcreate() {
+  curl -v -X POST -u 284km -H "Content-type: application/json" https://api.bitbucket.org/2.0/repositories/284km/$1 -d '{"scm":"git", "is_private":true, "fork_policy":"no_forks" }'
+};
+
+function bbdelete() {
+  curl -v -X DELETE -u 284km https://api.bitbucket.org/2.0/repositories/284km/$1
+};
+
