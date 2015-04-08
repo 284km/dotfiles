@@ -35,6 +35,9 @@ if [ -d ${HOME}/.rbenv ]; then
 # #        eval "$(rbenv init - zsh)"
 #     fi
 fi
+
+# export RUBYOPT=-w
+
 # plenv
 if [ -d ${HOME}/.plenv  ]; then
     export PATH=${HOME}/.plenv/bin:${HOME}/.plenv/shims:${PATH}
