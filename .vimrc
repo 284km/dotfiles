@@ -190,7 +190,7 @@ else
 
 
 
-" colorschemes
+  " colorschemes
   NeoBundle 'altercation/vim-colors-solarized'
   " NeoBundle 'jpo/vim-railscasts-theme'
   " NeoBundle 'baskerville/bubblegum'
