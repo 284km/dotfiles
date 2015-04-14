@@ -233,6 +233,7 @@ case ${OSTYPE} in
     alias P='p | pbcopy && pwd'
     alias CD='cd `pbpaste` && pwd'
     alias chrome='/usr/bin/google-chrome'
+    alias -g tmux='tmux -2'
     ;;
 esac
 
