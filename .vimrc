@@ -192,7 +192,8 @@ else
 
   " colorschemes
   NeoBundle 'altercation/vim-colors-solarized'
-  " NeoBundle 'jpo/vim-railscasts-theme'
+  NeoBundle 'jpo/vim-railscasts-theme'
+  NeoBundle 'tomasr/molokai'
   " NeoBundle 'baskerville/bubblegum'
   " NeoBundle 'nanotech/jellybeans.vim'
   " NeoBundle 'w0ng/vim-hybrid'
@@ -472,8 +473,9 @@ elseif has('unix')
   let g:solarized_contrast="high"
   let g:solarized_termtrans=1
   " colorscheme elflord " when normal terminal
-  colorscheme solarized " when guake
+  colorscheme solarized
   " colorscheme railscasts
+  " colorscheme molokai
 
   set clipboard=unnamedplus
 
@@ -496,6 +498,8 @@ endif
 "カーソルを表示行で移動する。物理行移動は<C-n>,<C-p>
 nnoremap j gj
 nnoremap k gk
+nnoremap Y y$
+nnoremap "" :%s/'/"/g<CR>
 noremap [space]h  ^
 noremap [space]j  G
 noremap [space]k  1G
