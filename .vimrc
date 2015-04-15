@@ -447,7 +447,7 @@ endif
 
 if has('win32')
   colorscheme darkblue
-  set guifont=MS_Gothic:h8:cSHIFTJIS
+  " set guifont=MS_Gothic:h8:cSHIFTJIS
 "  set linespace=1
 "  " 一部のUCS文字の幅を自動計測して決める
 "  if has('kaoriya')
