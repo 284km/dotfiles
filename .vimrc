@@ -473,9 +473,10 @@ elseif has('unix')
   let g:solarized_contrast="high"
   let g:solarized_termtrans=1
   " colorscheme elflord " when normal terminal
-  colorscheme solarized
+  " colorscheme solarized
   " colorscheme railscasts
-  " colorscheme molokai
+  colorscheme molokai
+  let g:molokai_original = 1
 
   set clipboard=unnamedplus
 
@@ -768,37 +769,30 @@ highlight ZenkakuSpace ctermbg=6 guibg=cyan
 match ZenkakuSpace /\s\+$\|　\|\t/
 
 
-if has('win32')
-elseif has('mac')
 
-  " カーソル行をハイライト
-  set cursorline
+set cursorline " カーソル行をハイライト
+if has('mac')
   " autocmd InsertLeave * setlocal nocursorline
   " autocmd InsertEnter * setlocal cursorline
-
 elseif has('unix')
-  set cursorline " カーソル行をハイライト
   " カレントウィンドウにのみ罫線を引く
- 
   augroup cch
     autocmd! cch
     autocmd WinLeave * set nocursorline
     autocmd WinEnter,BufRead * set cursorline
   augroup END
 
-  hi clear CursorLine
-  hi CursorLine gui=underline
+  " hi clear CursorLine
+  " hi CursorLine gui=underline
   " highlight CursorLine ctermbg=0 ctermfg=White guibg=darkblue
   " highlight CursorLine ctermbg=#222222 guibg=darkblue
 "  highlight CursorLine ctermbg=8 guibg=darkblue
-  highlight CursorLine ctermbg=8
-  highlight Search ctermbg=3
-  highlight Visual ctermbg=2
-  hi LineNr term=bold ctermfg=239 ctermbg=none gui=bold guifg=Black
-
+  " highlight CursorLine ctermbg=8
+  " highlight Search ctermbg=3
+  " highlight Visual ctermbg=2
+  " hi LineNr term=bold ctermfg=239 ctermbg=none gui=bold guifg=Black
 else
 endif
-
 
 
 " 補完内容が詳細に表示されるようになる
