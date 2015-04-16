@@ -330,7 +330,9 @@ else
   " vim-airline {{{
   let g:airline#extensions#tabline#enabled = 1
   let g:airline_powerline_fonts = 1
-  let g:airline_theme = "wombat"
+  " let g:airline_theme = "wombat"
+  let g:airline_theme = "powerlineish"
+  " let g:airline_theme = "sol"
   let g:airline#extensions#hunks#hunk_symbols = [
         \ g:gitgutter_sign_added . ' ',
         \ g:gitgutter_sign_modified . ' ',
