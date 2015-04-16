@@ -324,6 +324,7 @@ else
   NeoBundle "kchmck/vim-coffee-script"
   NeoBundle 'tacahilo/itamae-snippets' " :set ft=ruby.itamae
   NeoBundle 'mattn/emmet-vim' " html タグへの展開は C-y,
+  NeoBundle "vim-scripts/paredit.vim"
 
   NeoBundle 'bling/vim-airline'
   " vim-airline {{{
