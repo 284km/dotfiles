@@ -508,6 +508,8 @@ noremap [space]h  ^
 noremap [space]j  G
 noremap [space]k  1G
 noremap [space]l  $
+nnoremap ,p :pwd<CR>
+nnoremap ,.. :cd ..<CR>:pwd<CR>
 
 " vimgrep の検索結果など、Quickfix 操作用
 " :cw[indow] で window open
