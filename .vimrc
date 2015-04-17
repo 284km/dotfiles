@@ -817,12 +817,14 @@ let g:indent_guides_guide_size = 1 " ガイドの幅
 " hi IndentGuidesEven ctermbg=darkgray
 
 if has('mac')
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=DarkGrey   ctermbg=darkgrey
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=DarkGrey ctermbg=darkgrey
   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=DarkCyan ctermbg=12
 elseif has('unix')
   " on Xubuntu
-  hi IndentGuidesOdd  ctermbg=magenta
-  hi IndentGuidesEven ctermbg=white
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=DarkGrey ctermbg=darkgrey
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=DarkCyan ctermbg=lightgrey
+  " hi IndentGuidesOdd  ctermbg=magenta
+  " hi IndentGuidesEven ctermbg=white
 endif
 
 
