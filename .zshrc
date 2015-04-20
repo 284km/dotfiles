@@ -308,100 +308,6 @@ case ${OSTYPE} in
     ;;
 esac
 
-# -------------------------------------------------------------------------
-# peco
-# -------------------------------------------------------------------------
-function peco-src () {
-    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-    fi
-    zle clear-screen
-}
-zle -N peco-src
-bindkey '^]' peco-src
-
-function e () {
-    local selected_file=$(git ls-files | peco --query "$LBUFFER")
-    if [ -n "$selected_file" ]; then
-      vim ${selected_file}
-    fi
-}
-
-function peco-select-history() {
-  local tac
-  if which tac > /dev/null; then
-    tac="tac"
-  else
-    tac="tail -r"
-  fi
-  BUFFER=$(\history -n 1 | \
-    eval $tac | \
-    awk '!a[$0]++' | \
-    peco --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle clear-screen
-}
-zle -N peco-select-history
-bindkey '^r' peco-select-history
-
-function cdgem() {
-  local gem_name=$(bundle list | sed -e 's/^ *\* *//g' | peco | cut -d \  -f 1)
-  if [ -n "$gem_name" ]; then
-    local gem_dir=$(bundle show ${gem_name})
-    echo "cd to ${gem_dir}"
-    cd ${gem_dir}
-  fi
-}
-
-function peco-cd () {
-  local selected_dir=$(find ~/ -type d | peco)
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-  zle clear-screen
-}
-zle -N peco-cd
-bindkey '^x^f' peco-cd
-
-
-peco-find-cd() {
-  local FILENAME="$1"
-  local MAXDEPTH="${2:-3}"
-  local BASE_DIR="${3:-`pwd`}"
-
-  if [ -z "$FILENAME" ] ; then
-    echo "Usage: peco-find-cd <FILENAME> [<MAXDEPTH> [<BASE_DIR>]]" >&2
-    return 1
-  fi
-
-  local DIR=$(find ${BASE_DIR} -maxdepth ${MAXDEPTH} -name ${FILENAME} | peco | head -n 1)
-
-  if [ -n "$DIR" ] ; then
-    DIR=${DIR%/*}
-    echo "pushd \"$DIR\""
-    pushd "$DIR"
-  fi
-}
-
-peco-git-cd() {
-  peco-find-cd ".git" "$@"
-}
-
-peco-docker-cd() {
-  peco-find-cd "Dockerfile" "$@"
-}
-
-peco-vagrant-cd() {
-  peco-find-cd "Vagrantfile" "$@"
-}
-
-peco-go-cd() {
-  peco-find-cd ".git" 5 "$GOPATH"
-}
-
 # http://blog.kamipo.net/entry/2013/02/20/122225
 function static_httpd {
   if type plackup > /dev/null; then
@@ -445,6 +351,8 @@ fi
 if [ -f $HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source $HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+[ -f $HOME/dotfiles/zsh/.peco ] && source $HOME/dotfiles/zsh/.peco
 
 [ -f $HOME/dotfiles/zsh/.bitbucket ] && source $HOME/dotfiles/zsh/.bitbucket
 
