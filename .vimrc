@@ -755,7 +755,7 @@ if $GOROOT != ''
   augroup golang
     autocmd! golang
     " gofmt Go source files when they are saved
-    autocmd FileType go autocmd BufWritePre <buffer> Fmt
+    " autocmd FileType go autocmd BufWritePre <buffer> Fmt
   augroup END
 endif
 
