@@ -325,6 +325,8 @@ else
   NeoBundle 'tacahilo/itamae-snippets' " :set ft=ruby.itamae
   NeoBundle 'mattn/emmet-vim' " html タグへの展開は C-y,
   NeoBundle "vim-scripts/paredit.vim"
+  NeoBundle 'vim-jp/vim-go-extra'
+  NeoBundle 'google/vim-ft-go'  " 最新のvimだと対応しているらしい
 
   NeoBundle 'bling/vim-airline'
   " vim-airline {{{
@@ -750,14 +752,11 @@ let g:miniBufExplMapCTabSwitchBuffs = 1
 
 " golang
 if $GOROOT != ''
-  set rtp+=$GOROOT/misc/vim
-  "gocode
-  exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
-  "golint
-  exe "set rtp+=".globpath($GOPATH, "src/github.com/golang/lint/misc/vim")
-
-  " ファイル保存時に auto format
-  " auto BufWritePre *.go Fmt
+  augroup golang
+    autocmd! golang
+    " gofmt Go source files when they are saved
+    autocmd FileType go autocmd BufWritePre <buffer> Fmt
+  augroup END
 endif
 
 au BufEnter * execute ":lcd " . expand("%:p:h")
