@@ -1,0 +1,24 @@
+DEBUG_LOG()
+{
+  [ ! -f "$_DEBUG_LOGFILE_" -a $# -ne 0 ] && return 1
+  if [ ! -f "$_DEBUG_LOGFILE_" -a $# -eq 0 ]; then
+    cat <&0
+    return 1
+  fi
+
+  if [ $# -eq 0 ]; then
+    {
+      echo "--- `date '+%Y/%m/%d %H:%M:%S'` --------------------------------"
+      cat <&0
+      printf "\n\n"
+    # ロギング用に付加したものは削除しておく
+    } | tee -a $_DEBUG_LOGFILE_ | sed -e '1d' | head -n -2
+  else
+    {
+      echo "--- `date '+%Y/%m/%d %H:%M:%S'` --------------------------------"
+      printf "$*\n\n"
+    } >>$_DEBUG_LOGFILE_
+  fi
+
+  return 0
+}

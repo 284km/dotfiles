@@ -348,15 +348,13 @@ if type direnv > /dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
 
+[ -f $HOME/dotfiles/zsh/.bitbucket ]   && source $HOME/dotfiles/zsh/.bitbucket
+[ -f $HOME/dotfiles/zsh/.debug ]       && source $HOME/dotfiles/zsh/.debug
+[ -f $HOME/dotfiles/zsh/.http_status ] && source $HOME/dotfiles/zsh/.http_status
+[ -f $HOME/dotfiles/zsh/.peco ]        && source $HOME/dotfiles/zsh/.peco
 if [ -f $HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source $HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-
-[ -f $HOME/dotfiles/zsh/.peco ] && source $HOME/dotfiles/zsh/.peco
-
-[ -f $HOME/dotfiles/zsh/.bitbucket ] && source $HOME/dotfiles/zsh/.bitbucket
-
-[ -f $HOME/dotfiles/zsh/.http_status ] && source $HOME/dotfiles/zsh/.http_status
 
 # 個別設定を読み込む
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
