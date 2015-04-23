@@ -1,47 +1,255 @@
 # # This file overrides https://github.com/bbatsov/rubocop/blob/master/config/default.yml
-# 
+#
 # # Use UTF-8 as the source file encoding.
 # Encoding:
 #   Enabled: false
-# 
-# # Limit lines to 80 characters.
-# LineLength:
-#   Enabled: false
-# 
+#
 # # Avoid methods longer than 10 lines of code
 # MethodLength:
 #   Enabled: false
-# 
+#
 # # Favor modifier if/unless usage when you have a single-line body.
 # IfUnlessModifier:
 #   Enabled: false
-# 
+#
 # # Favor modifier while/until usage when you have a single-line body.
 # WhileUntilModifier:
 #   Enabled: false
-# 
+#
 # # Preferred collection methods.
 # CollectionMethods:
 #   Enabled: false
-# 
+#
 # # Avoid Perl-style regex back references.
 # AvoidPerlBackrefs:
 #   Enabled: false
-# 
+#
 # # Don't interpolate global, instance and class variables directly in strings.
 # VariableInterpolation:
 #   Enabled: false
-# 
+#
 # # Don't use semicolons to terminate expressions.
 # Semicolon:
 #   AllowBeforeEndInOneLineMethods: false
-# 
+#
 # # Use only ascii symbols in comments.
 # AsciiComments:
 #   Enabled: false
-# 
+#
 # # TODO: Change it to true when $redis and $mixpanel is removed
 # #
 # # Do not introduce global variables.
 # AvoidGlobalVars:
 #   Enabled: false
+
+# =========================================================================
+
+# 自動生成されるものはチェック対象から除外する
+AllCops:
+  Exclude:
+    - "vendor/**/*" # rubocop config/default.yml
+    - "db/schema.rb"
+    # - bin/**/*
+    # - db/**/*
+    # - doc/**/*
+    # - config/**/*
+    # - lib/monkey_patches/*
+    # - tmp/**/*
+    # - Gemfile
+    # - Rakefile
+    # - Vagrantfile
+    # - Guardfile
+  DisplayCopNames: true
+
+##################### Style ##################################
+
+# * 式展開したい場合に書き換えるのが面倒
+# * 文章ではダブルクォートよりもシングルクォートの方が頻出する
+# ことから EnforcedStyle: double_quotes 推奨
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Metrics/LineLength:
+  Max: 120
+# Exclude:
+# - "db/migrate/*.rb"
+
+Metrics/MethodLength:
+  Max: 20
+# Exclude:
+# - "db/migrate/*.rb"
+
+# ドキュメントの無い public class を許可する
+Style/Documentation:
+  Enabled: false
+
+# 30 まではギリギリ許せる範囲だった
+Metrics/AbcSize:
+  Max: 30
+
+# 新規に例外を送出する場合は fail/例外を再送出する場合は raise というものらしいが
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+# self 省略しないほうが分かりやすいこともある e.g. self.attr == other.attr
+Style/RedundantSelf:
+  Enabled: false
+
+# !! のイディオムは積極的に使う
+# Style/DoubleNegation:
+# Enabled: false
+
+# .gemspec でひっかかってた
+# Style/PercentLiteralDelimiters:
+#   Enabled: false
+
+# rake タスクの順序の hash は rocket を許可する
+# Style/HashSyntax:
+# Exclude:
+# - "**/*.rake"
+
+# -------------------------------------------------------------------------
+# 場合に寄ってはOKなもの
+
+# 日本語コメント許可する
+# Style/AsciiComments:
+# Enabled: false
+
+# has_ から始まるメソッドは許可する
+# Style/PredicateName:
+#   NamePrefixBlacklist:
+#     - "is_"
+#     - "have_"
+#   NamePrefix:
+#     - "is_"
+#     - "have_"
+
+# メソッドチェーンの改行は末尾に . を入れる
+# # REPL に貼り付けた際の暴発を防ぐため
+# Style/DotPosition:
+# EnforcedStyle: trailing
+
+# -------------------------------------------------------------------------
+
+# TODO: 以降はまた今度整理する
+
+# # redirect_to xxx and return のイディオムを維持したい
+# # Style/AndOr:
+# # EnforcedStyle: conditionals
+#
+
+# # option 等、明示的にハッシュにした方が分かりやすい場合もある
+# # Style/BracesAroundHashParameters:
+# # Enabled: false
+#
+# # Hash#has_key? は許可したい
+# # Style/DeprecatedHashMethods:
+# # Enabled: false
+
+# # いずれかに揃えるのならば `sprintf` や `format` より String#% が好きです
+# Style/FormatString:
+# EnforcedStyle: percent
+#
+# # if 文の中に 3 行程度のブロックを書くぐらいは許容した方が現実的
+# Style/GuardClause:
+# MinBodyLength: 5
+
+# # 条件式の方を意識させたい場合には後置の if/unless を使わない方が分かりやすい
+# # Style/IfUnlessModifier:
+# # Enabled: false
+#
+# # ({ と hash を開始した場合に ( の位置にインデントさせる
+# # そもそも {} が必要ない可能性が高いが Style/BracesAroundHashParameters はチェックしないことにしたので
+# # Style/IndentHash:
+# # EnforcedStyle: consistent
+#
+# # scope 等は複数行でも lambda ではなく ->{} で揃えた方が見た目が綺麗
+# # Style/Lambda:
+# # Enabled: false
+#
+# # 86400 やポート番号等、5 桁までは割と頻出するので許可する
+# # Style/NumericLiterals:
+# # MinDigits: 6
+
+# # 受け取り側で multiple assignment しろというのを明示
+# # Style/RedundantReturn:
+# # AllowMultipleReturnValues: true
+#
+# # 正規表現中に1つでも / があれば %r() を使う
+# # Style/RegexpLiteral:
+# # MaxSlashes: 0
+
+# # auto-correct 時に Style/StringLiterals とカニバって無限ループになる (v0.28.0)
+# Style/StringLiteralsInInterpolation:
+# Enabled: false
+#
+# # いくらなんでも inject { |a, e| } は短すぎるので分かりやすい名前をつけたい
+# Style/SingleLineBlockParams:
+# Enabled: false
+#
+# # * migrate
+# # * jbuilder
+# # * model の association
+# # * controller の callback
+# # 辺りの桁揃えで引っかかるので全体的にチェックしない
+# # Style/SingleSpaceBeforeFirstArg:
+# # Enabled: false
+#
+# # 複数行の場合はケツカンマを入れる
+# Style/TrailingComma:
+# EnforcedStyleForMultiline: comma
+#
+# ##################### Lint ##################################
+#
+# # * 同名のメソッドがある場合にローカル変数に `_` を付ける
+# # * 一時変数として `_` を付ける
+# # というテクニックは頻出する
+# # Lint/UnderscorePrefixedVariableName:
+# # Enabled: false
+#
+# # 子クラスで実装させるつもりのメソッドで引っかかるので
+# Lint/UnusedMethodArgument:
+# Enabled: false
+#
+# ##################### Metrics ##################################
+
+
+# # 6 は強すぎるので緩める
+# # Metrics/CyclomaticComplexity:
+# # Max: 10
+
+# # 分岐の数。ガード句を多用しているとデフォルト 7 だと厳しい
+# # Metrics/PerceivedComplexity:
+# # Max: 8
+
+# -------------------------------------------------------------------------
+
+# # 1行だけのメソッド定義はやめろと言ってくるけど、まぁ !!@ivar くらいの定義であれば 1 行でも
+# # いーじゃんみたいな感じなので切った。切らなくてもいいかもしれない。
+# SingleLineMethods:
+#   Enabled: false
+
+# # 式展開とかしてないなら single quote つかおうと言ってくる。が、今から直してまわるのはしんどい
+# # ので severity を下げてる。
+# StringLiterals:
+#   Severity: warning
+
+# # Hash とかで最後に余計なカンマを置いてると怒られる。ただこれしておくと 1 行追加した時に
+# # diff が綺麗なんだよね。という事で切っている。
+# TrailingComma:
+#   Enabled: false
+#
+# # ↑ でメソッドの 1 行定義を並べたりするときに、行の間に空白がない。
+# # というわけでこれにひっかかるので切る。
+# EmptyLineBetweenDefs:
+#   Enabled: false
+#
+# # %記法は `[` `]` を使えと書いてくるけど、そんなんケースバイケースだろという事で切ってる。
+# PercentLiteralDelimiters:
+#   Enabled: false
+#
+# # 複数行で lambda つくるときは -> じゃなくて lambda つかえと言ってくる。
+# # 理由が見当らないし納得もできそうにないので切る。
+# Lambda:
+#   Enabled: false
+
