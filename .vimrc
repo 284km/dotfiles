@@ -759,8 +759,8 @@ if $GOROOT != ''
   augroup END
 endif
 
-au BufEnter * execute ":lcd " . expand("%:p:h")
-
+" 編集中のファイルのディレクトリに移動
+nnoremap ,d :execute ":lcd" . expand("%:p:h")<CR>
 
 " ChangeLog
 let g:changelog_username = 'Kazuma Furuhashi <k.furuhashi10@gmail.com>'
