@@ -290,6 +290,35 @@ else
 " }}}
 
   NeoBundle 'gregsexton/gitv'
+  " gitv {{{
+  nnoremap [git]vn :<C-u>Gitv<CR>
+  nnoremap [git]va :<C-u>Gitv --all<CR>
+  nnoremap [git]vf :<C-u>Gitv!<CR>
+
+  " http://d.hatena.ne.jp/cohama/20130517/1368806202
+  function! GitvGetCurrentHash()
+    return matchstr(getline('.'), '\[\zs.\{7\}\ze\]$')
+  endfunction
+
+  function! s:my_gitv_settings()
+    setlocal foldlevel=99
+
+    setlocal iskeyword+=/,-,.
+    " カーソル下のブランチ名で checkout
+    " ブランチ間移動 r/R
+    nnoremap <silent><buffer> C :<C-u>Git checkout <C-r><C-w><CR>
+
+    " カーソル位置のコミットに対する操作
+    nnoremap <buffer> <Space>rb :<C-u>Git rebase <C-r>=GitvGetCurrentHash()<CR><Space>
+    nnoremap <buffer> <Space>ri :<C-u>Git rebase -i <C-r>=GitvGetCurrentHash()<CR><Space>
+    nnoremap <buffer> <Space>R :<C-u>Git revert <C-r>=GitvGetCurrentHash()<CR><CR>
+    nnoremap <buffer> <Space>p :<C-u>Git cherry-pick <C-r>=GitvGetCurrentHash()<CR><CR>
+    nnoremap <buffer> <Space>rh :<C-u>Git reset --hard <C-r>=GitvGetCurrentHash()<CR>
+  endfunction
+  autocmd FileType gitv call s:my_gitv_settings()
+
+  " }}}
+
   NeoBundle 'airblade/vim-gitgutter'
   " vim-gitgitter {{{
   let g:gitgutter_sign_added = '✚'
