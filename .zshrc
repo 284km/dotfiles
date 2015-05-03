@@ -74,7 +74,7 @@ fi
 # fi
 
 # unset PS1
-PS1=%F{5}$%f
+PS1=%F{5}$\ %f
 # PS1=%F{5}%#%f
 # PS1=%F{7}%K{6}%#%k%f
 # PS1=%F{7}%K{6}%/%#%k%f
@@ -246,6 +246,7 @@ alias ......='cd ../../../../..'
 alias .......='cd ../../../../../..'
 alias l='ls -al'
 alias la='ls -al'
+alias lh='ls -ahl'
 alias lr='ls -altrh'
 alias mv='mv -i'
 alias :q=exit
