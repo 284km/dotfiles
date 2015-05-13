@@ -503,14 +503,14 @@ elseif has('unix')
   " colorscheme slate
   " colorscheme desert
   " colorscheme pablo
+  " colorscheme elflord " when normal terminal
+  " colorscheme railscasts
   let g:solarized_termcolors=256
   let g:solarized_contrast="high"
   let g:solarized_termtrans=1
-  " colorscheme elflord " when normal terminal
-  " colorscheme solarized
-  " colorscheme railscasts
-  colorscheme molokai
-  let g:molokai_original = 1
+  colorscheme solarized
+  " colorscheme molokai
+  " let g:molokai_original = 1
 
   set clipboard=unnamedplus
 
