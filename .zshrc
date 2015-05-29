@@ -5,7 +5,7 @@ stty intr 
 
 case ${OSTYPE} in
   darwin*)
-    export PATH="${HOME}/ios/cocos2d-x-2.2.1/tools/project-creator:${PATH}"
+    # export PATH="${HOME}/ios/cocos2d-x-2.2.1/tools/project-creator:${PATH}"
     export PATH="/usr/local/bin:${PATH}"
 # ln -s /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin
     ;;
@@ -13,6 +13,7 @@ case ${OSTYPE} in
     ;;
 esac
 
+export PATH="${HOME}/bin:${PATH}"
 
 
 # rbenv
