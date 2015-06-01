@@ -292,6 +292,7 @@ else
   NeoBundle 'gregsexton/gitv'
   " gitv {{{
   nnoremap [git]vn :<C-u>Gitv<CR>
+  " 全てのブランチを表示
   nnoremap [git]va :<C-u>Gitv --all<CR>
   nnoremap [git]vf :<C-u>Gitv!<CR>
 
@@ -437,6 +438,11 @@ else
   " NeoBundle 'basyura/bitly.vim'
 
   " gist
+  " :Gist        Post current buffer to gist, using default privacy option.
+  " :'<,'>Gist   Post selected text to gist, using default privacy option. This applies to all permutations listed below (except multi).
+  " :Gist -p     Create a private gist.
+  " :Gist -P     Create a public gist. (Only relevant if you've set gists to be private by default.)
+  " :Gist --list
   NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 
 
