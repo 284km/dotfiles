@@ -266,6 +266,8 @@ alias gcb='git checkout -b'
 alias gd='git diff'
 alias gdc='git diff --cached'
 
+alias lc='echo $(fc -ln -1)'
+alias lcp='echo $(fc -ln -1) | pbcopy'
 alias mkdir='mkdir -p'
 alias -g G=' | grep'
 alias less='less --no-init --quit-if-one-screen'
