@@ -302,7 +302,9 @@ else
   endfunction
 
   function! s:my_gitv_settings()
-    setlocal foldlevel=99
+    " setlocal foldlevel=99
+    autocmd FileType git :setlocal foldlevel=99
+    " autocmd FileType git setlocal nofoldenable foldlevel=0
 
     setlocal iskeyword+=/,-,.
     " カーソル下のブランチ名で checkout
