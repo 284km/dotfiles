@@ -359,6 +359,7 @@ else
   NeoBundle "vim-scripts/paredit.vim"
   NeoBundle 'vim-jp/vim-go-extra'
   NeoBundle 'google/vim-ft-go'  " 最新のvimだと対応しているらしい
+  NeoBundle 'elixir-lang/vim-elixir'
 
   NeoBundle 'bling/vim-airline'
   " vim-airline {{{
