@@ -33,6 +33,9 @@ doc/
 # my working files
 ,/
 
+# rspec
+/spec/examples.txt
+
 # rails
 /vendor/bin
 /vendor/bundle
