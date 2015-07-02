@@ -534,7 +534,7 @@ else
   colorscheme slate
 endif
 
-set scrolloff=5 " 常にカーソル位置から5行余裕を取る
+set scrolloff=3 " 常にカーソル位置から5行余裕を取る
 
 " 80桁を意識させる線が現れる。少し邪魔。
 if (exists('+colorcolumn'))
