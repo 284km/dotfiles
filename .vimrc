@@ -421,6 +421,9 @@ else
   let g:calendar_google_calendar = 1
   let g:calendar_google_task = 1
 
+  " 括弧を自動で閉じてくれるやつ
+  NeoBundle 'Townk/vim-autoclose'
+
 " clang_complete
 " NeoBundle 'Rip-Rip/clang_complete'
 " let g:clang_periodic_quickfix = 1
