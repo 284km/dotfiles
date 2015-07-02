@@ -703,6 +703,8 @@ inoremap ,todo todo: <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
 inoremap ,done done: <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
 inoremap #!ruby #!/usr/bin/env ruby
 inoremap #!sh #!/bin/sh
+inoremap ,# # -------------------------------------------------------------------------
+inoremap .# # =========================================================================
 
 " 一般的な正規表現に近づける。
 nmap / /\v
@@ -772,9 +774,9 @@ call unite#custom#source('file_rec,file_rec/async', 'matcher', 'matcher_default'
 " ab コマンドラインモードと挿入モードの短縮入力の設定
 " ca コマンドラインモードの短縮入力の設定
 " ia 挿入モードの短縮入力の設定
-iabbrev ,# # -------------------------------------------------------------------------
-iabbrev .# # =========================================================================
-" iabbrev ,#ruby #!/usr/bin/env ruby
+" vim-autoclose 入れたら効かなくなったので inoremap にした
+" iabbrev ,# # -------------------------------------------------------------------------
+" iabbrev .# # =========================================================================
 
 " perl test
 "       augroup filetypedetect
