@@ -569,7 +569,7 @@ inoremap <C-f> <Right>
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 inoremap <C-d> <Del>
-inoremap <C-k> <C-o>D
+" inoremap <C-k> <C-o>D
 
 " from http://vim-users.jp/2011/04/hack214/ {{{
 vnoremap ( t(
