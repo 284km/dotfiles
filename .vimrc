@@ -422,7 +422,8 @@ else
   let g:calendar_google_task = 1
 
   " 括弧を自動で閉じてくれるやつ
-  NeoBundle 'Townk/vim-autoclose'
+  " esc 2回押す必要が生じたり abbrev が効かなくなったりしたのでやめた
+  " NeoBundle 'Townk/vim-autoclose'
 
 " clang_complete
 " NeoBundle 'Rip-Rip/clang_complete'
