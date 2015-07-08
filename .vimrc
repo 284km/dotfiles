@@ -394,6 +394,12 @@ else
   map /  <Plug>(incsearch-forward)
   map ?  <Plug>(incsearch-backward)
   map g/ <Plug>(incsearch-stay)
+  NeoBundle 'osyo-manga/vim-anzu' " display search result like (current/all)
+  nmap n <Plug>(anzu-n-with-echo)
+  nmap N <Plug>(anzu-N-with-echo)
+  nmap * <Plug>(anzu-star-with-echo)
+  nmap # <Plug>(anzu-sharp-with-echo)
+  set statusline=%{anzu#search_status()}
 
   NeoBundle 'nathanaelkane/vim-indent-guides' " indent を色付きに見やすくする
   NeoBundle 'bronson/vim-toggle-wrap' " \w
@@ -636,7 +642,8 @@ set ignorecase
 set smartcase " ignorecase を有効にしている場合に大文字が入ると ignorecase が無効になる
 set wrapscan " 最後尾まで検索を終えたら次の検索で先頭に移る
 nohlsearch "reset highlight
-nnoremap <silent> [space]/ :noh<CR>
+" anzu status も同時に消す
+nnoremap <silent> [space]/ :noh<CR>:AnzuClearSearchStatus<CR>
 
 set hidden " 保存されていないファイルがあるときでも別のファイルを開くことが出来る
 " set gdefault   " 置換の時 g オプションをデフォルトで有効にする
