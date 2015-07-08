@@ -390,6 +390,11 @@ else
   " e.g. viwS' cs'" ds"
   NeoBundle 'tpope/vim-surround'
 
+  NeoBundle 'haya14busa/incsearch.vim'
+  map /  <Plug>(incsearch-forward)
+  map ?  <Plug>(incsearch-backward)
+  map g/ <Plug>(incsearch-stay)
+
   NeoBundle 'nathanaelkane/vim-indent-guides' " indent を色付きに見やすくする
   NeoBundle 'bronson/vim-toggle-wrap' " \w
   " NeoBundle 'godlygeek/tabular'
@@ -708,7 +713,7 @@ inoremap ,# # ------------------------------------------------------------------
 inoremap .# # =========================================================================
 
 " 一般的な正規表現に近づける。
-nmap / /\v
+" nmap / /\v
 " 置換条件を省略すると最後に検索した検索条件を利用します。
 " 複雑な正規表現等で置換を行う際は / による検索で、
 " ハイライトされる範囲が正しい事を確認してから、
