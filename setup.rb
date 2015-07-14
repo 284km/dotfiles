@@ -68,6 +68,7 @@ link ".gemrc", "~/.gemrc"
 link ".pryrc", "~/.pryrc"
 link ".rubocop.yml", "~/.rubocop.yml"
 link ".siegerc", "~/.siegerc"
+link ".tigrc", "~/.tigrc"
 link ".tmux.conf", "~/.tmux.conf"
 
 # link ".bvirc", "~/.bvirc"
