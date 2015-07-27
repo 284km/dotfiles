@@ -101,7 +101,7 @@ RPROMPT="%1(v|%F{3}%1v%f|)"
 
 
 
-export MYSQL_PS1="(\u@\h) [\d]>"
+export MYSQL_PS1="(\\u@\\h) [\\d] > "
 
 # %M  ホスト名    localhost.localdomain
 # %m  ホスト名    localhost
