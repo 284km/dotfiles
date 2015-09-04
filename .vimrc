@@ -716,6 +716,7 @@ inoremap ,todo todo: <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
 inoremap ,done done: <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
 inoremap #!ruby #!/usr/bin/env ruby
 inoremap #!sh #!/bin/sh
+inoremap #!html <!DOCTYPE html>
 inoremap ,# # -------------------------------------------------------------------------
 inoremap .# # =========================================================================
 
