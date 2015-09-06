@@ -733,6 +733,8 @@ inoremap .# # ==================================================================
 nmap ,b :buffers<CR>
 nnoremap [space]n :<C-U>bnext<CR>
 nnoremap [space]p :<C-U>bprevious<CR>
+nnoremap ,l :<C-U>bnext<CR>
+nnoremap ,h :<C-U>bprevious<CR>
 nnoremap <Leader>1   :e #1<CR>
 nnoremap <Leader>2   :e #2<CR>
 nnoremap <Leader>3   :e #3<CR>
