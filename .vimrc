@@ -686,6 +686,8 @@ set softtabstop=0 " キーボードで<Tab>キーを押した時に挿入され�
 " autocmd FileType eruby set shiftwidth=2
 " autocmd FileType javascript set tabstop=2
 " autocmd FileType javascript set shiftwidth=2
+autocmd FileType c set tabstop=4 shiftwidth=4
+autocmd FileType cpp set tabstop=4 shiftwidth=4
 
 
 "text witdh
