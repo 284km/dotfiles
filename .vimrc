@@ -361,6 +361,14 @@ else
   NeoBundle 'google/vim-ft-go'  " 最新のvimだと対応しているらしい
   NeoBundle 'elixir-lang/vim-elixir'
 
+  " vim-markdown {{{
+  NeoBundle 'plasticboy/vim-markdown'
+  NeoBundle 'kannokanno/previm' " :PrevimOpen でブラウザで開く
+  NeoBundle 'tyru/open-browser.vim'
+  au BufRead,BufNewFile *.md set filetype=markdown
+  " let g:previm_open_cmd = 'open -a Firefox' " open-browser があれば不要
+  " }}}
+
   NeoBundle 'bling/vim-airline'
   " vim-airline {{{
   let g:airline#extensions#tabline#enabled = 1
