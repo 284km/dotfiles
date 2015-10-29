@@ -276,6 +276,7 @@ alias -g G=' | grep'
 alias -g L=' | less'
 
 alias ta='tmux a'
+alias tl='tmux list-sessions'
 alias topc='top -ocpu -n10 -s5'
 alias topm='top -omem -n10 -s5'
 
