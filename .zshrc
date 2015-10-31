@@ -359,6 +359,13 @@ if [ -f $HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]
   source $HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+
+# The next line updates PATH for the Google Cloud SDK.
+source "$HOME/google-cloud-sdk/path.zsh.inc"
+# The next line enables shell command completion for gcloud.
+source "$HOME/google-cloud-sdk/completion.zsh.inc"
+
+
 # 個別設定を読み込む
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
