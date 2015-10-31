@@ -62,6 +62,9 @@ if [ -d ${HOME}/.pyenv  ]; then
     eval "$(pyenv init - zsh)"
 fi
 
+# gvm
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
 # for go lang
 if [ -x "`which go`" ]; then
   export GOROOT=`go env GOROOT`
