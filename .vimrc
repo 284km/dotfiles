@@ -370,6 +370,7 @@ else
   NeoBundle 'kannokanno/previm' " :PrevimOpen でブラウザで開く
   NeoBundle 'tyru/open-browser.vim'
   au BufRead,BufNewFile *.md set filetype=markdown
+  let g:vim_markdown_folding_disabled=1
   " let g:previm_open_cmd = 'open -a Firefox' " open-browser があれば不要
   " }}}
 
