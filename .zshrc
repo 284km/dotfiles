@@ -377,3 +377,5 @@ fi
 # added by travis gem
 [ -f ${HOME}/.travis/travis.sh ] && source ${HOME}/.travis/travis.sh
 
+# 重複する PATH を unique にする
+typeset -U path PATH
