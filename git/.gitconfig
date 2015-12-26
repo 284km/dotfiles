@@ -229,4 +229,4 @@
 [github]
 	user = 284km
 [commit]
-	template = /home/akihabara/dotfiles/git/.git_commit_msg.txt
+	template = ~/dotfiles/git/.git_commit_msg.txt

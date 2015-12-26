@@ -40,9 +40,10 @@ begin
   ]
 
   Pry.config.commands.alias_command "fm", "find-method"
+  Pry.config.commands.alias_command "l", ".ls -al"
   Pry.config.commands.alias_command ":q", "exit"
   Pry.config.commands.alias_command "sd", "show-doc"
-  Pry.config.commands.alias_command "ss", "show-source"
+  Pry.config.commands.alias_command "ss", "show-source -l"
   Pry.config.commands.alias_command "sm", "show-method"
   # Pry.config.commands.alias_command "em", "edit-method"
 
