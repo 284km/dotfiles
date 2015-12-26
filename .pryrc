@@ -44,7 +44,7 @@ begin
   Pry.config.commands.alias_command ":q", "exit"
   Pry.config.commands.alias_command "sd", "show-doc"
   Pry.config.commands.alias_command "ss", "show-source -l"
-  Pry.config.commands.alias_command "sm", "show-method"
+  Pry.config.commands.alias_command "sm", "show-method -l"
   # Pry.config.commands.alias_command "em", "edit-method"
 
   if defined?(PryDebugger)
