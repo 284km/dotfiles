@@ -809,6 +809,9 @@ call unite#custom#source('file_rec,file_rec/async', 'matcher', 'matcher_default'
 " iabbrev ,# # -------------------------------------------------------------------------
 " iabbrev .# # =========================================================================
 
+" w!! で sudo で保存
+cabbr w!! w !sudo tee > /dev/null %
+
 " perl test
 "       augroup filetypedetect
 "       autocmd! BufNewFile,BufRead *.t setf perl
