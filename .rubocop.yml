@@ -4,10 +4,6 @@
 # Encoding:
 #   Enabled: false
 #
-# # Avoid methods longer than 10 lines of code
-# MethodLength:
-#   Enabled: false
-#
 # # Favor modifier if/unless usage when you have a single-line body.
 # IfUnlessModifier:
 #   Enabled: false
@@ -31,11 +27,12 @@
 # # Don't use semicolons to terminate expressions.
 # Semicolon:
 #   AllowBeforeEndInOneLineMethods: false
-#
-# # Use only ascii symbols in comments.
-# AsciiComments:
-#   Enabled: false
-#
+
+# Use only ascii symbols in comments.
+# 日本語コメント許可する
+AsciiComments:
+  Enabled: false
+
 # # TODO: Change it to true when $redis and $mixpanel is removed
 # #
 # # Do not introduce global variables.
@@ -68,12 +65,17 @@ AllCops:
 # ことから EnforcedStyle: double_quotes 推奨
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+# もしくは Severity 下げる 
+# StringLiterals:
+#   Severity: warning
 
 Metrics/LineLength:
   Max: 120
 # Exclude:
 # - "db/migrate/*.rb"
 
+
+# 20 行超えるのは migration ファイル以外滅多に無い
 Metrics/MethodLength:
   Max: 20
 # Exclude:
@@ -87,13 +89,18 @@ Style/Documentation:
 Metrics/AbcSize:
   Max: 30
 
-# 新規に例外を送出する場合は fail/例外を再送出する場合は raise というものらしいが
+# 新規に例外を送出する場合は fail / 例外を再送出する場合は raise というものらしいが
+# fail と使い分ける必要ナシ
 Style/SignalException:
   EnforcedStyle: only_raise
 
 # self 省略しないほうが分かりやすいこともある e.g. self.attr == other.attr
 Style/RedundantSelf:
   Enabled: false
+
+# 86400 やポート番号等、5 桁までは割と頻出するので許可する
+Style/NumericLiterals:
+MinDigits: 6
 
 # !! のイディオムは積極的に使う
 # Style/DoubleNegation:
@@ -108,12 +115,14 @@ Style/RedundantSelf:
 # Exclude:
 # - "**/*.rake"
 
+# 条件式の方を意識させたい場合には後置の if/unless を使わない方が分かりやすい
+# Style/IfUnlessModifier:
+# Enabled: false
+
+
+
 # -------------------------------------------------------------------------
 # 場合に寄ってはOKなもの
-
-# 日本語コメント許可する
-# Style/AsciiComments:
-# Enabled: false
 
 # has_ から始まるメソッドは許可する
 # Style/PredicateName:
@@ -129,6 +138,18 @@ Style/RedundantSelf:
 # Style/DotPosition:
 # EnforcedStyle: trailing
 
+# # 明示的に else で nil を返すのは分かりやすいので許可する
+# Style/EmptyElse:
+#   EnforcedStyle: empty
+
+# # 桁揃えが綺麗にならないことが多いので migration は除外
+# Style/ExtraSpacing:
+#   Exclude:
+#     - "db/migrate/*.rb"
+
+
+
+
 # -------------------------------------------------------------------------
 
 # TODO: 以降はまた今度整理する
@@ -136,7 +157,16 @@ Style/RedundantSelf:
 # # redirect_to xxx and return のイディオムを維持したい
 # # Style/AndOr:
 # # EnforcedStyle: conditionals
-#
+
+
+# # do .. end から更にメソッドチェーンすると見づらいので
+# # auto-correct せず、自分で修正する
+# # spec 内は見た目が綺麗になるので許可
+# Style/BlockDelimiters:
+#   AutoCorrect: false
+#   Exclude:
+#     - "spec/**/*"
+
 
 # # option 等、明示的にハッシュにした方が分かりやすい場合もある
 # # Style/BracesAroundHashParameters:
@@ -149,27 +179,26 @@ Style/RedundantSelf:
 # # いずれかに揃えるのならば `sprintf` や `format` より String#% が好きです
 # Style/FormatString:
 # EnforcedStyle: percent
-#
+
 # # if 文の中に 3 行程度のブロックを書くぐらいは許容した方が現実的
 # Style/GuardClause:
 # MinBodyLength: 5
 
-# # 条件式の方を意識させたい場合には後置の if/unless を使わない方が分かりやすい
-# # Style/IfUnlessModifier:
-# # Enabled: false
-#
 # # ({ と hash を開始した場合に ( の位置にインデントさせる
 # # そもそも {} が必要ない可能性が高いが Style/BracesAroundHashParameters はチェックしないことにしたので
 # # Style/IndentHash:
 # # EnforcedStyle: consistent
-#
+
+# # private/protected は一段深くインデントする
+# Style/IndentationConsistency:
+#   EnforcedStyle: rails
+
+
+
 # # scope 等は複数行でも lambda ではなく ->{} で揃えた方が見た目が綺麗
 # # Style/Lambda:
 # # Enabled: false
 #
-# # 86400 やポート番号等、5 桁までは割と頻出するので許可する
-# # Style/NumericLiterals:
-# # MinDigits: 6
 
 # # 受け取り側で multiple assignment しろというのを明示
 # # Style/RedundantReturn:
@@ -229,11 +258,6 @@ Style/RedundantSelf:
 # SingleLineMethods:
 #   Enabled: false
 
-# # 式展開とかしてないなら single quote つかおうと言ってくる。が、今から直してまわるのはしんどい
-# # ので severity を下げてる。
-# StringLiterals:
-#   Severity: warning
-
 # # Hash とかで最後に余計なカンマを置いてると怒られる。ただこれしておくと 1 行追加した時に
 # # diff が綺麗なんだよね。という事で切っている。
 # TrailingComma:
@@ -252,4 +276,10 @@ Style/RedundantSelf:
 # # 理由が見当らないし納得もできそうにないので切る。
 # Lambda:
 #   Enabled: false
+
+# # spec 内は見た目が綺麗になるので許可
+# Style/Semicolon:
+#   Exclude:
+#     - "spec/**/*"
+
 
