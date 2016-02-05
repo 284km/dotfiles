@@ -97,6 +97,16 @@
   ca  = commit -a           # modifiedなファイルを全てstageへ
   cv  = commit -v           # diff を見ながら
 #   cam = commit -a --amend   # 直前のcommitを修正
+  cc  = shortlog -sn --no-merges --since='$(date +%Y/%m/%d) 00:00:00' # today's commit count
+  cc1 = shortlog -sn --no-merges --since='$(date --date "1 day ago" +%Y/%m/%d) 00:00:00' --before='$(date +%Y/%m/%d) 00:00:00' # yesterday's commit count
+  cc2 = shortlog -sn --no-merges --since='$(date --date "2 day ago" +%Y/%m/%d) 00:00:00' --before='$(date --date "1 day ago" +%Y/%m/%d) 00:00:00'
+  cc3 = shortlog -sn --no-merges --since='$(date --date "3 day ago" +%Y/%m/%d) 00:00:00' --before='$(date --date "2 day ago" +%Y/%m/%d) 00:00:00'
+  cc4 = shortlog -sn --no-merges --since='$(date --date "4 day ago" +%Y/%m/%d) 00:00:00' --before='$(date --date "3 day ago" +%Y/%m/%d) 00:00:00'
+  cc5 = shortlog -sn --no-merges --since='$(date --date "5 day ago" +%Y/%m/%d) 00:00:00' --before='$(date --date "4 day ago" +%Y/%m/%d) 00:00:00'
+  cc6 = shortlog -sn --no-merges --since='$(date --date "6 day ago" +%Y/%m/%d) 00:00:00' --before='$(date --date "5 day ago" +%Y/%m/%d) 00:00:00'
+  cc7 = shortlog -sn --no-merges --since='$(date --date "7 day ago" +%Y/%m/%d) 00:00:00' --before='$(date --date "6 day ago" +%Y/%m/%d) 00:00:00'
+  cc8 = shortlog -sn --no-merges --since='$(date --date "8 day ago" +%Y/%m/%d) 00:00:00' --before='$(date --date "7 day ago" +%Y/%m/%d) 00:00:00'
+  cc9 = shortlog -sn --no-merges --since='$(date --date "9 day ago" +%Y/%m/%d) 00:00:00' --before='$(date --date "8 day ago" +%Y/%m/%d) 00:00:00'
   co  = checkout
   cb  = checkout -b         # branch切ってcheckoutする
 #   ct  = checkout --track    # remoteのbranchを追跡
