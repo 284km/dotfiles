@@ -138,6 +138,10 @@ export MYSQL_PS1="(\\u@\\h) [\\d] > "
 # %K  文字背景の色(%kで終了)
 # 0:black、1:red、2:green、3:yellow、4:blue、5:magenta、6:cyan、7:white
 
+# /etc 以下を読まないようにするため (El Capitan)
+# http://d.hatena.ne.jp/sugyan/20151211/1449833480
+setopt no_global_rcs
+
 # 実行後に右プロンプトを削除する
 setopt transient_rprompt
 # プロンプト中の変数を展開する
