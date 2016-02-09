@@ -1,4 +1,18 @@
 
+# main viewの左端にコミットIDを表示する
+# set main-view = id date author commit-title:graph=yes,refs=yes
+
+# set line-graphics = ascii
+# set blame-view = date:local author:full id line-number:true,interval=1 text
+# set main-view = line-number:true,interval=10 date:local author:full id commit-title:true,graph=true,refs=true
+# set refs-view = date:local author:full id ref:true commit-title:true
+# set status-view = file-name status:long
+# set tree-view = date:local author:full id file-size:unit mode file-name
+# set horizontal-scroll = 20%
+
+# Esc-c で、コミットハッシュ値をコピーできるようにする
+# bind generic <Esc>c !@bash -c "cut -c-7 <<<%(commit) | xargs echo -n | pbcopy"
+
 # open commit at github
 bind main o !@hub browse -- commit/%(commit)
 bind diff o !@hub browse -- commit/%(commit)
