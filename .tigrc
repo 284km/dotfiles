@@ -18,3 +18,4 @@ bind main o !@hub browse -- commit/%(commit)
 bind diff o !@hub browse -- commit/%(commit)
 bind log  o !@hub browse -- commit/%(commit)
 
+set wrap-lines = yes # 長い行を折り返して表示する
