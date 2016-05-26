@@ -327,7 +327,7 @@ else
   " }}}
 
   NeoBundle 'airblade/vim-gitgutter'
-  " vim-gitgitter {{{
+  " vim-gitgutter {{{
   let g:gitgutter_sign_added = '✚'
   let g:gitgutter_sign_modified = '➜'
   let g:gitgutter_sign_removed = '✘'
@@ -941,4 +941,9 @@ set notitle
 " ファイル全体から 文字列 が 含まれている行以外 を削除
 " :g/{文字列}/d
 
+" q:      コマンド実行履歴
+" q/, q?  検索履歴
+
+" ]c 次の変更行にジャンプ
+" [c 前の変更行にジャンプ
 
