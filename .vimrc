@@ -476,6 +476,10 @@ else
   " :Gist --list
   NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 
+  " :GoogleTranslate
+  " :GoogleTranslate ja
+  " :GoogleTranslate zh-cn ja
+  " NeoBundle 'mattn/googletranslate-vim'
 
   if !has('mac')
     " evernote
