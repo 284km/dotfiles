@@ -122,6 +122,7 @@
   # log関連
 #   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
 #   wc  = whatchanged         # logに変更されたファイルも一緒に出す
+  lg  = log --graph         # display graphical representation of commit history
   ls  = log --stat          # logに変更されたファイルも一緒に出す
   lp  = log -p              # diffも一緒に出す
 #   la  = log --pretty=\"format:%ad %h (%an): %s\" --date=short  # ざっくりログ出す
