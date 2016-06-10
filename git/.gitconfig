@@ -115,7 +115,9 @@
   cd  = checkout develop
   # branch関連
   br  = branch
+  brt = "!f() { for i in `git branch | colrm 1 2` ; do echo `git log --date=iso8601 -n 1 --pretty='format:[%ai] %h' $i` $i ; done; }; f | sort -r"
   ba  = branch -a           # originも含めた全てのbranchを表示
+  bat = "!f() { for i in `git branch -a | grep -v '>' | colrm 1 2` ; do echo `git log --date=iso8601 -n 1 --pretty='format:[%ai] %h' $i` $i ; done; }; f | sort -r"
   bm  = branch --merged     # merge済みのbranchを表示
   bn  = branch --no-merged  # mergeしてないbranchを表示
   bo  = branch -r           # remote branchを表示
