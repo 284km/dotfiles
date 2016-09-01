@@ -94,6 +94,8 @@
 #   ram = "!f() { git rebase-and-merge $1 $2 ;}; f"
   # comit
 #   ad  = add
+  ap  = add -p
+  au  = add -u
   c   = commit
   ca  = commit -a           # modifiedなファイルを全てstageへ
   cv  = commit -v           # diff を見ながら
