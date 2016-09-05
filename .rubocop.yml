@@ -45,6 +45,7 @@ AsciiComments:
 AllCops:
   Exclude:
     - "vendor/**/*" # rubocop config/default.yml
+    - "**/vendor/**/*"
     - "db/schema.rb"
     # - bin/**/*
     # - db/**/*
@@ -60,20 +61,121 @@ AllCops:
 
 ##################### Style ##################################
 
-# * 式展開したい場合に書き換えるのが面倒
-# * 文章ではダブルクォートよりもシングルクォートの方が頻出する
+# rails/.rubocop.yml
+# コメントしてないものは同意ということ
+
+# AllCops:
+  # TargetRubyVersion: 2.3
+  # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
+  # to ignore them, so only the ones explicitly set in this file are enabled.
+  # DisabledByDefault: true
+  # Exclude:
+  #   - '**/templates/**/*'
+  #   - '**/vendor/**/*'
+
+# これは redirect_to xxx and return したい時が無いか？
+# Prefer &&/|| over and/or.
+# Style/AndOr:
+#   Enabled: true
+
+# option 等、明示的にハッシュにした方が分かりやすい場合もある派
+# Do not use braces for hash literals when they are the last argument of a
+# method call.
+# Style/BracesAroundHashParameters:
+#   Enabled: true
+
+# Align `when` with `case`.
+Style/CaseIndentation:
+  Enabled: true
+
+# No extra empty lines.
+Style/EmptyLines:
+  Enabled: true
+
+# In a regular class definition, no empty lines around the body.
+Style/EmptyLinesAroundClassBody:
+  Enabled: true
+
+# In a regular module definition, no empty lines around the body.
+Style/EmptyLinesAroundModuleBody:
+  Enabled: true
+
+# 基本同意だけど rake タスクの順序の hash について
+# Use Ruby >= 1.9 syntax for hashes. Prefer { a: :b } over { :a => :b }.
+# Style/HashSyntax:
+#   Enabled: true
+
+# 下げない派だったけどこれは rails に合わせようと思った
+# Method definitions after `private` or `protected` isolated calls need one
+# extra level of indentation.
+Style/IndentationConsistency:
+  Enabled: true
+  EnforcedStyle: rails
+
+# Two spaces, no tabs (for indentation).
+Style/IndentationWidth:
+  Enabled: true
+
+# Defining a method with parameters needs parentheses.
+Style/MethodDefParentheses:
+  Enabled: true
+
+# Use `foo {}` not `foo{}`.
+Style/SpaceBeforeBlockBraces:
+  Enabled: true
+
+# Use `foo { bar }` not `foo {bar}`.
+Style/SpaceInsideBlockBraces:
+  Enabled: true
+
+# Use `{ a: 1 }` not `{a:1}`.
+Style/SpaceInsideHashLiteralBraces:
+  Enabled: true
+
+# 式展開したい場合に書き換えるのが面倒
+# 文章ではダブルクォートよりもシングルクォートの方が頻出する
 # ことから EnforcedStyle: double_quotes 推奨
+# Check quotes usage according to lint rule below.
 Style/StringLiterals:
+  Enabled: true
   EnforcedStyle: double_quotes
 # もしくは Severity 下げる 
 # StringLiterals:
 #   Severity: warning
 
+# Detect hard tabs, no hard tabs.
+Style/Tab:
+  Enabled: true
+
+# Blank lines should not have any spaces.
+Style/TrailingBlankLines:
+  Enabled: true
+
+# No trailing whitespace.
+Style/TrailingWhitespace:
+  Enabled: true
+
+# Use quotes for string literals when they are enough.
+Style/UnneededPercentQ:
+  Enabled: true
+
+# Align `end` with the matching keyword or starting expression except for
+# assignments, where it should be aligned with the LHS.
+Lint/EndAlignment:
+  Enabled: true
+  AlignWith: variable
+
+# Use my_method(my_arg) not my_method( my_arg ) or my_method my_arg.
+Lint/RequireParentheses:
+Enabled: true
+
+
+# -------------------------------------------------------------------------
+
 Metrics/LineLength:
   Max: 120
 # Exclude:
 # - "db/migrate/*.rb"
-
 
 # 20 行超えるのは migration ファイル以外滅多に無い
 Metrics/MethodLength:
@@ -125,13 +227,13 @@ MinDigits: 6
 # 場合に寄ってはOKなもの
 
 # has_ から始まるメソッドは許可する
-# Style/PredicateName:
-#   NamePrefixBlacklist:
-#     - "is_"
-#     - "have_"
-#   NamePrefix:
-#     - "is_"
-#     - "have_"
+Style/PredicateName:
+  NamePrefixBlacklist:
+    - "is_"
+    - "have_"
+  NamePrefix:
+    - "is_"
+    - "have_"
 
 # メソッドチェーンの改行は末尾に . を入れる
 # # REPL に貼り付けた際の暴発を防ぐため
@@ -189,9 +291,6 @@ MinDigits: 6
 # # Style/IndentHash:
 # # EnforcedStyle: consistent
 
-# # private/protected は一段深くインデントする
-# Style/IndentationConsistency:
-#   EnforcedStyle: rails
 
 
 
@@ -227,6 +326,11 @@ MinDigits: 6
 # # 複数行の場合はケツカンマを入れる
 # Style/TrailingComma:
 # EnforcedStyleForMultiline: comma
+### Style/TrailingCommaInArguments:
+###   EnforcedStyleForMultiline: comma
+### 
+### Style/TrailingCommaInLiteral:
+### EnforcedStyleForMultiline: comma
 #
 # ##################### Lint ##################################
 #
