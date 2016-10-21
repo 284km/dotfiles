@@ -256,6 +256,7 @@ alias :q=exit
 alias be='bundle exec'
 alias bi='bundle install --path vendor/bundle --without production --jobs=4'
 alias bibs='bundle install --path vendor/bundle --binstubs vendor/bin --without production --jobs=4'
+alias copy="tail -n2 ~/.zsh_history | head -n1 | awk -F';' '{print \$2}' | pbcopy"
 alias cp_attribute="cp --preserve=all --attributes-only"
 alias g='git'
 alias ga='git add -A'
