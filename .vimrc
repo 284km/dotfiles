@@ -577,6 +577,7 @@ nnoremap j gj
 nnoremap k gk
 nnoremap Y y$
 nnoremap "" :%s/'/"/g<CR>
+nnoremap '' :%s/"/'/g<CR>
 noremap [space]h  ^
 noremap [space]j  G
 noremap [space]k  1G
