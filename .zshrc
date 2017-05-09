@@ -378,6 +378,7 @@ fi
 
 [ -f $HOME/dotfiles/zsh/.bitbucket ]   && source $HOME/dotfiles/zsh/.bitbucket
 [ -f $HOME/dotfiles/zsh/.debug ]       && source $HOME/dotfiles/zsh/.debug
+[ -f $HOME/dotfiles/zsh/.ghq ]       && source $HOME/dotfiles/zsh/.ghq
 [ -f $HOME/dotfiles/zsh/.http_status ] && source $HOME/dotfiles/zsh/.http_status
 [ -f $HOME/dotfiles/zsh/.peco ]        && source $HOME/dotfiles/zsh/.peco
 if [ -f $HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
