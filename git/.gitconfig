@@ -87,6 +87,7 @@
   rbi7 = rebase -i HEAD^^^^^^^
   rbi8 = rebase -i HEAD^^^^^^^^
   rbi9 = rebase -i HEAD^^^^^^^^^
+  wip = !"git add --all; git commit -m \"`date +%Y%m%d_%H%M%S` [ci skip]\""
 
 #   # merge
 #   mn  = merge --no-ff
