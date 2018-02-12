@@ -731,6 +731,10 @@ set iminsert=0 imsearch=0
 set listchars=tab:>-
 set list
 
+" #asakusarb #vim #ruby
+" let g:ruby_fold = 1
+" let g:ruby_foldable_groups = '#'
+
 inoremap ,date <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
 inoremap ,bdate <C-R>=strftime("date: %Y-%m-%d %H:%M")<CR>
 inoremap ,todo todo: <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>

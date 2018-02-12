@@ -37,7 +37,7 @@ if [ -d ${HOME}/.rbenv ]; then
 #     fi
 fi
 
-# export RUBYOPT=-w
+export RUBYOPT=-w
 
 # plenv
 if [ -d ${HOME}/.plenv  ]; then
@@ -52,9 +52,13 @@ fi
 ## $ echo 'eval "$(ndenv init -)"' >> ~/.bash_profile
 ## $ exec $SHELL -l
 ## $ git clone https://github.com/riywo/node-build.git ~/.ndenv/plugins/node-build
-if [ -d ${HOME}/.ndenv  ]; then
-    export PATH=${HOME}/.ndenv/bin:${HOME}/.ndenv/shims:${PATH}
-    eval "$(ndenv init - zsh)"
+# if [ -d ${HOME}/.ndenv  ]; then
+#     export PATH=${HOME}/.ndenv/bin:${HOME}/.ndenv/shims:${PATH}
+#     eval "$(ndenv init - zsh)"
+# fi
+if [ -d ${HOME}/.nodenv  ]; then
+    export PATH=${HOME}/.nodenv/bin:${PATH}
+    eval "$(nodenv init - zsh)"
 fi
 # pyenv
 if [ -d ${HOME}/.pyenv  ]; then
