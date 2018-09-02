@@ -482,19 +482,6 @@ else
   " :GoogleTranslate zh-cn ja
   " NeoBundle 'mattn/googletranslate-vim'
 
-  if !has('mac')
-    " evernote
-    " https://github.com/kakkyz81/evervim/blob/master/doc/evervim.jax
-    " :EvervimSetup        アカウントのセットアップを行う。
-    " :EvervimNotebookList ノートブックの一覧を表示する。
-    " :EvervimListTags     タグの一覧を表示する。
-    " :EvervimCreateNote   新規ノートを保存するためのバッファが開かれる。
-    " :EvervimOpenBrowser  ノートをブラウザで開く。
-    " :EvervimSearchByQuery {query} 検索文字列を指定して、ヒットしたノートの一覧を表示する。
-    NeoBundle 'kakkyz81/evervim'
-    let g:evervim_devtoken=$EVERVIM_DEVTOKEN
-  endif
-
   " hatena blog
   " :HatebloCreate
   " :HatebloCreateDraft
