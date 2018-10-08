@@ -16,6 +16,12 @@ esac
 export PATH="${HOME}/bin:${PATH}"
 
 
+# mysqlenv
+# if [ -d ${HOME}/.mysqlenv ]; then
+#   source ~/.mysqlenv/etc/bashrc
+#   # export PATH="${HOME}/.mysqlenv/bin:${HOME}/.mysqlenv/shims:${HOME}/.mysqlenv/mysql-build/bin:${PATH}"
+# fi
+
 # rbenv
 if [ -d ${HOME}/.rbenv ]; then
     # shims は tmux のため
@@ -258,6 +264,8 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias .......='cd ../../../../../..'
 alias :q=exit
+# $ docker pull rubylang/all-ruby
+alias all-ruby='docker run --rm -t rubylang/all-ruby /all-ruby/all-ruby'
 alias be='bundle exec'
 alias bi='bundle install --path vendor/bundle --without production --jobs=4'
 alias bibs='bundle install --path vendor/bundle --binstubs vendor/bin --without production --jobs=4'
