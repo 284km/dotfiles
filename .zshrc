@@ -263,6 +263,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias .......='cd ../../../../../..'
+alias ........='cd ../../../../../../..'
 alias :q=exit
 # $ docker pull rubylang/all-ruby
 alias all-ruby='docker run --rm -t rubylang/all-ruby /all-ruby/all-ruby'
