@@ -1,6 +1,6 @@
 [user]
   name = 284km
-  email = at284km@gmail.com
+  email = k.furuhashi10@gmail.com
 [color]
   # ui = auto
   # colorの設定(以下のコマンドは自動で色つける)
@@ -67,7 +67,7 @@
 #   ft  = fetch
 #   ftp = fetch --prune
 #   up  = pull --rebase       # pull rebase
-  po  = push origin         # push origin
+  po  = push origin
 #   pof = push -f origin      # force
   pu  = push -u origin      # push origin and set upstream
 #   # push current branch to origin with --upstream
@@ -87,6 +87,7 @@
   rbi7 = rebase -i HEAD^^^^^^^
   rbi8 = rebase -i HEAD^^^^^^^^
   rbi9 = rebase -i HEAD^^^^^^^^^
+  rbi20 = rebase -i HEAD^^^^^^^^^^^^^^^^^^^^
   wip = !"git add --all; git commit -m \"`date +%Y%m%d_%H%M%S` [ci skip]\""
 
 #   # merge
