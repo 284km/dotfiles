@@ -23,6 +23,7 @@ if dein#load_state('~/.cache/dein')
 
   " git
   call dein#add('tpope/vim-fugitive')
+  call dein#add('airblade/vim-gitgutter')
 
   " common
   call dein#add('bronson/vim-toggle-wrap') " \w
@@ -638,14 +639,6 @@ set notitle
 "   autocmd FileType gitv call s:my_gitv_settings()
 "
 "   " }}}
-"
-"   NeoBundle 'airblade/vim-gitgutter'
-"   " vim-gitgutter {{{
-"   let g:gitgutter_sign_added = '✚'
-"   let g:gitgutter_sign_modified = '➜'
-"   let g:gitgutter_sign_removed = '✘'
-"   let g:gitgutter_sign_modified_removed = '✔'
-"   "}}}
 "
 " " 最近使ってないので、暫く off にしてみる。vim が重いのをやめたい。
 " "   " syntax check
