@@ -277,8 +277,7 @@ alias ga='git add -A'
 alias gb='git branch -a'
 alias gc='git checkout'
 alias gcb='git checkout -b'
-alias gd='git diff'
-alias gdc='git diff --cached'
+alias d='git diff'
 alias ghq=ghq_in_tmux
 alias gn='git-now --all'
 alias gnf='git-now --fixup'
@@ -290,6 +289,7 @@ alias mv='mv -i'
 alias p='pwd'
 alias pp=popd
 alias rmigc='bundle exec rake db:migrate db:test:clone'
+alias s='git status -bs'
 alias v='vim'
 
 alias lc='echo $(fc -ln -1)'
