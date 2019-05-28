@@ -262,7 +262,7 @@ match ZenkakuSpace /\s\+$\|　\|\t/
 set cursorline " カーソル行をハイライト
 " highlight CursorLine ctermbg=White cterm=bold guifg=white guibg=white gui=bold
 highlight CursorLine cterm=bold gui=bold
-highlight LineNr ctermbg=gray
+highlight LineNr ctermfg=grey ctermbg=white
 
 " ：Gstatus                新しい窓を作ってgit statusを表示
   " ：Gstatus上の変更のあったファイルにカーソルを合わせた状態で
