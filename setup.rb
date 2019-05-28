@@ -74,7 +74,7 @@ link ".tmux.conf", "~/.tmux.conf"
 # link ".bvirc", "~/.bvirc"
 # link ".rascutrc", "~/.rascutrc"
 # link ".re.pl", "~/.re.pl"
-# link ".irbrc", "~/.irbrc"
+link ".irbrc", "~/.irbrc"
 # link ".gdbinit", "~/.gdbinit"
 # link ".my.cnf", "~/.my.cnf"
 
