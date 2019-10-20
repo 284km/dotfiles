@@ -139,6 +139,7 @@ set list
 
 autocmd FileType c set tabstop=4 shiftwidth=4
 autocmd FileType cpp set tabstop=4 shiftwidth=4
+autocmd FileType java set tabstop=4 shiftwidth=4
 
 inoremap ,date <C-R>=strftime("%Y/%m/%d %H:%M:%S")<CR>
 inoremap ,bdate <C-R>=strftime("date: %Y-%m-%d %H:%M")<CR>
