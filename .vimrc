@@ -67,6 +67,8 @@ endif
 
 if has('mac')
   set clipboard=unnamed,autoselect
+else
+  set clipboard=unnamedplus
 endif
 
 " vertical line (length: 80)
@@ -307,7 +309,7 @@ function! _(str)
   return s:move_cursor_pos_mapping(a:str, "\<Left>")
 endfunction
 
-" colorscheme solarized
+colorscheme solarized
 
 filetype plugin indent on
 syntax enable
