@@ -66,11 +66,18 @@ if [ -d ${HOME}/.nodenv  ]; then
     export PATH=${HOME}/.nodenv/bin:${PATH}
     eval "$(nodenv init - zsh)"
 fi
+
 # pyenv
-if [ -d ${HOME}/.pyenv  ]; then
-    export PATH=${HOME}/.pyenv/bin:${HOME}/.pyenv/shims:${PATH}
-    eval "$(pyenv init - zsh)"
-fi
+# if [ -d ${HOME}/.pyenv  ]; then
+#   # export PYTHONPATH=/Users/xxx/.pyenv/versions/anaconda3-4.3.1/lib/python3.6/:/Users/xxx/.pyenv/versions/anaconda3-4.3.1/lib/python3.6/site-packages/:/Users/xxx/.pyenv/versions/anaconda3-4.3.1/lib/python3.6/lib-dynload/
+#   export PYTHONPATH=${HOME}/.pyenv/bin:${HOME}/.pyenv/shims
+#   export PYTHONHOME=$PYTHONPATH
+#
+#     export PATH=${HOME}/.pyenv/bin:${HOME}/.pyenv/shims:${PATH}
+#     eval "$(pyenv init - zsh)"
+# fi
+# alias python='python3'
+# alias pip='pip3'
 
 # gvm
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
@@ -86,6 +93,12 @@ fi
 # if [ -f $GOROOT/misc/zsh/go ]; then
 #     source $GOROOT/misc/zsh/go
 # fi
+
+# rust cargo
+[[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
+if [ -x "`which rustup`" ]; then
+  export RUST_BACKTRACE=1
+fi
 
 # unset PS1
 PS1=%F{5}$\ %f
