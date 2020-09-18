@@ -52,6 +52,7 @@ if dein#load_state('~/.cache/dein')
   " syntax
   call dein#add('slim-template/vim-slim')
   call dein#add('leafgarland/typescript-vim')
+  call dein#add('rust-lang/rust.vim')
 
   call dein#add('altercation/vim-colors-solarized')
   let g:solarized_termcolors=256
