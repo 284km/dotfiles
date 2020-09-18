@@ -14,7 +14,7 @@ case ${OSTYPE} in
 esac
 
 export PATH="${HOME}/bin:${PATH}"
-
+# export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 # mysqlenv
 # if [ -d ${HOME}/.mysqlenv ]; then
