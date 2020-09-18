@@ -11,7 +11,7 @@
 *.sw[po]
 .*.un~
 *.tmp
-# tags
+tags
 Session.vim
 *cache.sql
 nytprof
