@@ -248,3 +248,5 @@
 	user = 284km
 [commit]
 	template = ~/dotfiles/git/.git_commit_msg.txt
+[init]
+	defaultBranch = main
