@@ -62,7 +62,8 @@ fi
 #     export PATH=${HOME}/.ndenv/bin:${HOME}/.ndenv/shims:${PATH}
 #     eval "$(ndenv init - zsh)"
 # fi
-if [ -d ${HOME}/.nodenv  ]; then
+
+if [ -d ${HOME}/.nodenv ]; then
     export PATH=${HOME}/.nodenv/bin:${PATH}
     eval "$(nodenv init - zsh)"
 fi
@@ -418,6 +419,7 @@ if [ -d ${HOME}/google-cloud-sdk ]; then
   source "$HOME/google-cloud-sdk/path.zsh.inc"
   # The next line enables shell command completion for gcloud.
   source "$HOME/google-cloud-sdk/completion.zsh.inc"
+  # export CLOUDSDK_PYTHON="$(which python2.7)"
 fi
 
 
