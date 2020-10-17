@@ -45,23 +45,10 @@ fi
 
 export RUBYOPT=-w
 
-# plenv
 if [ -d ${HOME}/.plenv  ]; then
     export PATH=${HOME}/.plenv/bin:${HOME}/.plenv/shims:${PATH}
     eval "$(plenv init - zsh)"
 fi
-
-# ndenv
-## install
-## $ git clone https://github.com/riywo/ndenv ~/.ndenv
-## $ echo 'export PATH="$HOME/.ndenv/bin:$PATH"' >> ~/.bash_profile
-## $ echo 'eval "$(ndenv init -)"' >> ~/.bash_profile
-## $ exec $SHELL -l
-## $ git clone https://github.com/riywo/node-build.git ~/.ndenv/plugins/node-build
-# if [ -d ${HOME}/.ndenv  ]; then
-#     export PATH=${HOME}/.ndenv/bin:${HOME}/.ndenv/shims:${PATH}
-#     eval "$(ndenv init - zsh)"
-# fi
 
 if [ -d ${HOME}/.nodenv ]; then
     export PATH=${HOME}/.nodenv/bin:${PATH}
@@ -335,22 +322,19 @@ compdef mosh=ssh
 # zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
 
-# RVM
-# [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
-
 ### Added by the Heroku Toolbelt
 # export PATH="/usr/local/heroku/bin:$PATH"
 
 # postgresql
-case ${OSTYPE} in
-  darwin*)
-    ;;
-  linux*)
-    export POSTGRES_HOME='/usr/lib/postgresql/9.3/'
-    export POSTGRES_INCLUDE='/usr/include/postgresql'
-    export POSTGRES_LIB='/usr/lib/postgresql/9.3/lib'
-    ;;
-esac
+# case ${OSTYPE} in
+#   darwin*)
+#     ;;
+#   linux*)
+#     export POSTGRES_HOME='/usr/lib/postgresql/9.3/'
+#     export POSTGRES_INCLUDE='/usr/include/postgresql'
+#     export POSTGRES_LIB='/usr/lib/postgresql/9.3/lib'
+#     ;;
+# esac
 
 # http://blog.kamipo.net/entry/2013/02/20/122225
 function static_httpd {
@@ -404,7 +388,7 @@ if type direnv > /dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
 
-[ -f $HOME/dotfiles/zsh/.bitbucket ]   && source $HOME/dotfiles/zsh/.bitbucket
+# [ -f $HOME/dotfiles/zsh/.bitbucket ]   && source $HOME/dotfiles/zsh/.bitbucket
 [ -f $HOME/dotfiles/zsh/.debug ]       && source $HOME/dotfiles/zsh/.debug
 [ -f $HOME/dotfiles/zsh/.ghq ]       && source $HOME/dotfiles/zsh/.ghq
 [ -f $HOME/dotfiles/zsh/.http_status ] && source $HOME/dotfiles/zsh/.http_status
@@ -422,12 +406,14 @@ if [ -d ${HOME}/google-cloud-sdk ]; then
   # export CLOUDSDK_PYTHON="$(which python2.7)"
 fi
 
+# RVM
+# [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+# added by travis gem
+# [ -f ${HOME}/.travis/travis.sh ] && source ${HOME}/.travis/travis.sh
+
 
 # 個別設定を読み込む
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
-
-# added by travis gem
-[ -f ${HOME}/.travis/travis.sh ] && source ${HOME}/.travis/travis.sh
 
 # 重複する PATH を unique にする
 typeset -U path PATH
