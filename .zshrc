@@ -22,6 +22,16 @@ export PATH="${HOME}/bin:${PATH}"
 #   # export PATH="${HOME}/.mysqlenv/bin:${HOME}/.mysqlenv/shims:${HOME}/.mysqlenv/mysql-build/bin:${PATH}"
 # fi
 
+# tfenv
+# $ tfenv list-remote
+# $ tfenv list
+# $ tfenv use 0.7.0
+# $ cat .terraform-version
+# 0.7.0
+if [ -d ${HOME}/.tfenv ]; then
+    export PATH="${HOME}/.tfenv/bin:${PATH}"
+fi
+
 # rbenv
 if [ -d ${HOME}/.rbenv ]; then
     # shims は tmux のため
