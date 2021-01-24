@@ -98,6 +98,10 @@ if [ -x "`which rustup`" ]; then
   export RUST_BACKTRACE=1
 fi
 
+if [ -d ${HOME}/,/flutter  ]; then
+    export PATH=${HOME}/,/flutter/bin:${PATH}
+fi
+
 # unset PS1
 PS1=%F{5}$\ %f
 # PS1=%F{5}%#%f
