@@ -250,3 +250,5 @@
 	template = ~/dotfiles/git/.git_commit_msg.txt
 [init]
 	defaultBranch = main
+[hub]
+	protocol = git
