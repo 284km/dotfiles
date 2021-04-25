@@ -37,8 +37,6 @@
   log = diff-highlight | less
   show = diff-highlight | less
   diff = diff-highlight | less -r
-[ghn]
-  token = a043937db3f97410e77efa19495c32aaee7c7469
 [alias]
   # git の current branch をコマンドで取得する
   current-branch = rev-parse --abbrev-ref HEAD
