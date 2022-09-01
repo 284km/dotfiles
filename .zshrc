@@ -425,6 +425,10 @@ fi
 # added by travis gem
 # [ -f ${HOME}/.travis/travis.sh ] && source ${HOME}/.travis/travis.sh
 
+# kubectl
+source <(kubectl completion zsh)
+alias k=kubectl
+compdef __start_kubectl k
 
 # 個別設定を読み込む
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
