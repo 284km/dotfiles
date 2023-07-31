@@ -28,7 +28,7 @@ nytprof
 /log/*.log
 /tmp
 # Ignore other unneeded files.
-doc/
+# doc/
 
 # my working files
 ,/
