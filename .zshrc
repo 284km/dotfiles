@@ -6,6 +6,8 @@ stty intr 
 case ${OSTYPE} in
   darwin*)
     # export PATH="${HOME}/ios/cocos2d-x-2.2.1/tools/project-creator:${PATH}"
+    export PATH=/opt/homebrew/bin:${PATH}
+    export PATH=/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin:${PATH}
     export PATH="/usr/local/bin:${PATH}"
 # ln -s /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin
     ;;
@@ -294,7 +296,7 @@ alias gb='git branch -a'
 alias gc='git checkout'
 alias gcb='git checkout -b'
 alias d='git diff'
-alias ghq=ghq_in_tmux
+# alias ghq=ghq_in_tmux
 alias gn='git-now --all'
 alias gnf='git-now --fixup'
 alias l='ls -al'
@@ -435,3 +437,4 @@ compdef __start_kubectl k
 
 # 重複する PATH を unique にする
 typeset -U path PATH
+
