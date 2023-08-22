@@ -6,6 +6,8 @@
 if &compatible
   set nocompatible
 endif
+
+" execute 'set runtimepath+=' . s:dein_src
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.cache/dein')
@@ -310,9 +312,11 @@ function! _(str)
   return s:move_cursor_pos_mapping(a:str, "\<Left>")
 endfunction
 
-colorscheme solarized
+" colorscheme solarized
 
-filetype plugin indent on
+if has('filetype')
+  filetype indent plugin on
+endif
 syntax enable
 set notitle
 
