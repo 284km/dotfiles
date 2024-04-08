@@ -55,7 +55,7 @@ if [ -d ${HOME}/.rbenv ]; then
 #     fi
 fi
 
-export RUBYOPT=-w
+# export RUBYOPT=-w
 
 if [ -d ${HOME}/.plenv  ]; then
     export PATH=${HOME}/.plenv/bin:${HOME}/.plenv/shims:${PATH}
@@ -129,6 +129,9 @@ precmd () {
 # バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
 RPROMPT="%1(v|%F{3}%1v%f|)"
 
+source /opt/homebrew/opt/kube-ps1/share/kube-ps1.sh
+PROMPT='$(kube_ps1)'$PROMPT
+# RPROMPT='$(kube_ps1)'
 
 
 export MYSQL_PS1="(\\u@\\h) [\\d] > "
