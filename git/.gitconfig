@@ -72,7 +72,7 @@
 #   # push current branch to origin with --upstream
 #   puc = "!f() { git push origin -u `git symbolic-ref --short HEAD` ;}; f"
   # rebase
-  rbm = rebase --merge master       # masterへのrebaseはよく使うのでalias
+  rbm = rebase --merge main       # masterへのrebaseはよく使うのでalias
 #   rbd = rebase --merge develop
   rbc = rebase --continue
   rba = rebase --abort
@@ -114,7 +114,7 @@
   co  = checkout
   cb  = checkout -b         # branch切ってcheckoutする
 #   ct  = checkout --track    # remoteのbranchを追跡
-  cm  = checkout master
+  cm  = checkout main
   cd  = checkout develop
   # branch関連
   br  = branch
@@ -248,7 +248,7 @@
 [commit]
 	template = ~/dotfiles/git/.git_commit_msg.txt
 [init]
-	defaultBranch = default
+	defaultBranch = main
 [hub]
 	protocol = git
 [url "ssh://git@github.com/"]
